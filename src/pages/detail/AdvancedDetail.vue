@@ -62,7 +62,7 @@
           <detail-list-item term="角色码">1234567</detail-list-item>
           <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
           <detail-list-item term="过期时间">2018-08-08</detail-list-item>
-          <detail-list-item term="描述">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</detail-list-item>
+          <detail-list-item term="描述" class="longerContent">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item>
         </detail-list>
         <a-divider style="margin: 16px 0" />
         <detail-list title="组名称" size="small" :col="1">
@@ -70,7 +70,7 @@
           <detail-list-item term="角色码">1234567</detail-list-item>
           <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
           <detail-list-item term="过期时间">2018-08-08</detail-list-item>
-          <detail-list-item term="描述">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</detail-list-item>
+          <detail-list-item term="描述" class="longerContent">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item>
         </detail-list>
         <a-divider style="margin: 16px 0" />
         <detail-list title="组名称" size="small" :col="2">
@@ -78,7 +78,22 @@
           <detail-list-item term="角色码">1234567</detail-list-item>
           <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
           <detail-list-item term="过期时间">2018-08-08</detail-list-item>
-          <detail-list-item term="描述">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长...</detail-list-item>
+          <a-tooltip placement="topLeft" title="描述">
+            <detail-list-item term="描述" class="longerContent">这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item>
+          </a-tooltip>
+        </detail-list>
+        <a-divider style="margin: 16px 0" />
+        <detail-list title="用户个人信息" size="small" :col="4">
+          <detail-list-item :key="item.key" :term="item.value"
+           v-for="item in userList">
+           <span v-if="item.value=='用户所在组' && item.content.length > 20"
+            class="ignoreContent">
+              <a-tooltip :title="item.content">
+                {{ item.content }}
+              </a-tooltip>
+           </span>
+           <span v-else>{{ item.content }}</span>
+          </detail-list-item>
         </detail-list>
       </a-card>
     </a-card>
@@ -141,12 +156,36 @@ const tabList = [
   }
 ]
 
+const userList=[
+  {
+    key:'1',
+    value:'用户名称',
+    content:'wahaha'
+  },
+  {
+    key:'2',
+    value:'用户部门',
+    content:'BI & planning'
+  },
+  {
+    key:'3',
+    value:'用户所在组',
+    content:'Object > Data infrastructure'
+  },
+  {
+    key:'4',
+    value:'用户入职时间',
+    content:new Date().toLocaleDateString(),
+  },
+]
+
 export default {
   name: 'AdvancedDetail',
   components: {HeadInfo, AStepItemGroup, AStepItem, DetailListItem, DetailList, PageLayout},
   data () {
     return {
       tabList,
+      userList,
       operationColumns,
       operation1,
       operation2,
@@ -166,4 +205,17 @@ export default {
 </script>
 
 <style lang="less" scoped>
+/deep/ .detail-list .longerContent .content{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: inline-block;
+}
+.ignoreContent{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 50%;
+  display: block;
+}
 </style>

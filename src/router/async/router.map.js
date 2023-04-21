@@ -93,12 +93,12 @@ const routerMap = {
     component: view.blank
   },
   basicDetails: {
-    path: 'basic',
+    path: 'basicDetails',
     name: '基础详情页',
     component: () => import('@/pages/detail/BasicDetail')
   },
   advanceDetails: {
-    path: 'advance',
+    path: 'advanceDetails',
     name: '高级详情页',
     component: () => import('@/pages/detail/AdvancedDetail')
   },
