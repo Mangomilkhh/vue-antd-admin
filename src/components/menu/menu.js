@@ -157,9 +157,15 @@ export default {
       let tag = 'router-link'
       const path = resolvePath(menu.fullPath, menu.meta.params)
       let config = {props: {to: {path, query: menu.meta.query}, }, attrs: {style: 'overflow:hidden;white-space:normal;text-overflow:clip;'}}
+      //点击后跳转到外网的情况
       if (menu.meta && menu.meta.link) {
         tag = 'a'
         config = {attrs: {style: 'overflow:hidden;white-space:normal;text-overflow:clip;', href: menu.meta.link, target: '_blank'}}
+      }
+      if(menu.name=='自定义页面有很长很长的内容'){
+        // tag = 'a-popover'     , placement:'bottomRight'
+        config = {props: {to: {path, query: menu.meta.query}, }, 
+        attrs: {tag:'a-popover',style: 'overflow:hidden;white-space:normal;text-overflow:clip;'}}
       }
       return h(
         Item, {key: menu.fullPath},
@@ -203,6 +209,7 @@ export default {
             }
           }
         }
+        //renderSubMenu渲染出navigator的一级菜单    renderMenuItem渲染出层层子级菜单
         return (menu.children && renderChildren) ? this.renderSubMenu(h, menu) : this.renderMenuItem(h, menu)
       }
     },
