@@ -26,28 +26,45 @@
       <a-button type="primary">主操作</a-button>
     </template>
 
-    <a-card style="margin-top: 24px" title="需求动态">
-      <a-timeline style="width: 200px">
-        <a-timeline-item :key="index" v-for="(item, index) in actionList">
-          <a-card style="margin-top: 10px">
-            {{ item.value }}
-            <div style="position: relative">
-              <!-- :class="listIndex.indexOf (index)!=-1 ? 
+    <a-card title="需求动态">
+      <div style="display: flex">
+        <a-timeline style="width: 200px">
+          <a-timeline-item :key="index" v-for="(item, index) in actionList">
+            <a-card style="margin-top: 10px">
+              {{ item.value }}
+              <div style="position: relative">
+                <!-- :class="listIndex.indexOf (index)!=-1 ? 
               'action-detail-open' : 'action-detail'" -->
-              <div  ref="programDescription">
-                {{ item.content }}
+                <div ref="programDescription">
+                  {{ item.content }}
+                </div>
+                <div v-if="array111.indexOf(index) != -1" class="detailIcon">
+                  <a @click="toggleDetail(index)"
+                    >{{ listIndex.indexOf(index) != -1 ? "收起" : "展开" }}
+                    <a-icon
+                      :type="listIndex.indexOf(index) != -1 ? 'up' : 'down'"
+                  /></a>
+                </div>
               </div>
-              <div v-if="array111.indexOf(index) != -1" class="detailIcon">
-                <a @click="toggleDetail(index)"
-                  >{{ listIndex.indexOf(index) != -1 ? "收起" : "展开" }}
-                  <a-icon
-                    :type="listIndex.indexOf(index) != -1 ? 'up' : 'down'"
-                /></a>
+            </a-card>
+          </a-timeline-item>
+        </a-timeline>
+
+        <a-timeline style="width: 200px">
+          <a-timeline-item :key="index" v-for="(item, index) in actionList">
+            <a-card style="margin-top: 10px">
+            <div class="section">
+              <input class="content-check" type="checkbox" id="c1" hidden />
+              <div class="content">
+                <!-- class="content" :class="listIndex.indexOf(index) != -1?'content':''" -->
+                <pre class="text">{{ item.content }}</pre>
+                <label for="c1" class="btn" @click="toggleDetail(index)"></label>
               </div>
             </div>
           </a-card>
-        </a-timeline-item>
-      </a-timeline>
+          </a-timeline-item>
+        </a-timeline>
+      </div>
     </a-card>
 
     <a-card :bordered="false" title="流程进度">
@@ -252,12 +269,14 @@ const actionList = [
   {
     key: "1",
     value: "csdn1",
-    content: "Vue完成数据请求后内容超出显示省略号+显示查看全文按钮",
+    content:
+      "Vue完成数据请求后内容超出显示省略号+显示查看全文按钮，Vue完成数据请求后内容超出显示省略号+显示查看全文按钮，Vue完成数据请求后内容超出显示省略号+显示查看全文按钮",
   },
   {
     key: "2",
     value: "csdn2",
-    content: "【已解决】Failed to connect to github.com port 443 : Timed out",
+    content:
+      "【已解决】Failed to connect to github.com port 443 : Timed out，【已解决】Failed to connect to github.com port 443 : Timed out，【已解决】Failed to connect to github.com port 443 : Timed out，【已解决】Failed to connect to github.com port 443 : Timed out",
   },
   {
     key: "3",
@@ -309,27 +328,16 @@ export default {
   methods: {
     getRequireAction() {
       this.$nextTick(() => {
-        console.log("999", this.$refs.programDescription);
-
         this.$refs.programDescription.forEach((item, index) => {
           //原本长度达到三行的情况
           if (item.clientHeight > 60) {
             this.array111.push(index);
           }
         });
-        console.log("55", this.array111);
       });
     },
-    aaa(index) {
-      if (this.array111.length !== 0) {
-        return this.array111.indexOf(index) != -1
-          ? "action-detail-open"
-          : "action-detail";
-      }
-    },
-    // toggleDetailStyle(index){
-    // },
     toggleDetail(index) {
+      console.log('2323',index);
       if (this.listIndex.indexOf(index) == -1) {
         this.listIndex.push(index);
       } else {
@@ -371,5 +379,89 @@ export default {
 .action-detail-open {
   width: 85%; // (一定要加宽度）
   overflow: hidden; //超出的文本隐藏
+}
+
+//用input输入框被选中做内容超出一定高度时隐藏
+.content {
+  width: 400px;
+  max-height:200px;
+  overflow: hidden;
+}
+.content2 {
+  width: 400px;
+  max-height:200px;
+  overflow: hidden;
+}
+.section {
+  display: flex;
+}
+pre {
+  white-space: pre-wrap;
+}
+.content::before {
+  content: "";
+  width: 100px;
+  height: 100%;
+  float: left;
+}
+.content2::before {
+  content: "";
+  width: 100px;
+  height: 100%;
+  float: left;
+}
+.btn {
+  float: right;
+  width: 100px;
+  text-align: center;
+  position: relative;
+  left: calc(50% - 50px);
+  transform: translateY(-100%);
+  cursor: pointer;
+}
+.btn::after {
+  content: "";
+  display: block;
+  height: 34px;
+  background-color: #666;
+  transition: 0.2s background-color;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E %3Cpath d='M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z'%3E%3C/path%3E %3C/svg%3E")
+    center/ 24px 24px no-repeat;
+}
+.btn:hover::after {
+  background-color: royalblue;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34px;
+}
+.text {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 15px;
+  float: right;
+  line-height: 1.5;
+  margin: 0;
+  margin-left: -100px;
+  font-size: 18px;
+  color: #232323;
+  -webkit-mask: linear-gradient(red 150px, transparent 200px);
+}
+.content-check:checked + .content {
+  max-height: fit-content;
+}
+.content-check:checked + .content .btn {
+  left: auto;
+  right: calc(50% - 50px);
+}
+.content-check:checked + .content .btn::after {
+  transform: scaleY(-1);
+}
+.content-check:checked + .content .text {
+  -webkit-mask: none;
 }
 </style>
