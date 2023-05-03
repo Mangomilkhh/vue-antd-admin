@@ -102,6 +102,11 @@ const routerMap = {
     name: '高级详情页',
     component: () => import('@/pages/detail/AdvancedDetail')
   },
+  selfCreate: {
+    path: 'selfCreate',
+    name: '高级详情页',
+    component: () => import('@/pages/detail/SelfCreate')
+  },
   result: {
     name: '结果页',
     icon: 'check-circle-o',

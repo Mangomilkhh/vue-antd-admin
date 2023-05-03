@@ -155,6 +155,11 @@ const options = {
               path: 'advance',
               name: '高级详情页',
               component: () => import('@/pages/detail/AdvancedDetail')
+            },
+            {
+              path: 'selfcreate',
+              name: '自定义页面',
+              component: () => import('@/pages/detail/SelfCreate')
             }
           ]
         },
