@@ -142,6 +142,10 @@ export default {
     }
   },
   methods: {
+    aaa(){
+      console.log('111');
+    },
+    
     renderIcon: function (h, icon, key) {
       if (this.$scopedSlots.icon && icon && icon !== 'none') {
         const vnodes = this.$scopedSlots.icon({icon, key})
@@ -153,6 +157,8 @@ export default {
       }
       return !icon || icon == 'none' ? null : h(Icon, {props: {type:  icon}})
     },
+
+    //二级菜单显示
     renderMenuItem: function (h, menu) {
       let tag = 'router-link'
       const path = resolvePath(menu.fullPath, menu.meta.params)
@@ -162,26 +168,45 @@ export default {
         tag = 'a'
         config = {attrs: {style: 'overflow:hidden;white-space:normal;text-overflow:clip;', href: menu.meta.link, target: '_blank'}}
       }
-      if(menu.name=='自定义页面有很长很长的内容'){
-        // tag = 'a-popover'     , placement:'bottomRight'
-        config = {props: {to: {path, query: menu.meta.query}, }, 
-        attrs: {tag:'a-popover',style: 'overflow:hidden;white-space:normal;text-overflow:clip;'}}
-      }
+      // if(menu.name=='自定义页面有很长很长很长的内容'){
+      //   // tag = 'a-popover'    slot: 'content',id:'menu111',
+      //   config = {props: {to: {path, query: menu.meta.query},}, 
+      //   attrs: {tag:'a-popover',style: 'color:red;overflow:hidden;white-space:normal;text-overflow:clip;'
+      //   ,title:menu.name,placement:'right'}}
+      // }
+
+      // attrs参数是存放HTML元素(标签)的属性，对于 Vue 组件并不一定有用，但对于虚拟DOM渲染时非常重要
+      // 参考：https://www.5axxw.com/questions/simple/ar0p9j
       return h(
         Item, {key: menu.fullPath},
         [
+          // 在二级菜单的每一项外层增加气泡框，a-tooltip的api没有content参数所以不显示
+          // !this.collapsed表示左侧菜单展开时
+          h(!this.collapsed && menu.name?.length>10?'a-popover':'a-tooltip',
+          {attrs:{style:'overflow:hidden;white-space:normal;text-overflow:clip;height: 43px;',
+          placement:'right',content:menu.name}},[
+
           h(tag, config,
             [
               this.renderIcon(h, menu.meta ? menu.meta.icon : 'none', menu.fullPath),
               this.$t(getI18nKey(menu.fullPath))
             ]
           )
+
+        ])
+        
         ]
       )
     },
+
+    //一级菜单显示
+    //h('span',{ attrs: {style: ''}},123)   ,on: {click: this.aaa}
     renderSubMenu: function (h, menu) {
       let this_ = this
-      let subItem = [h('span', {slot: 'title', attrs: {style: 'overflow:hidden;white-space:normal;text-overflow:clip;'}},
+      let subItem =
+      [h('span',{slot: 'title',style:'overflow:hidden;white-space:normal;text-overflow:clip;'},
+      //  [h('a-popover', {slot: 'title',attrs: {style: 'overflow:hidden;white-space:normal;text-overflow:clip;',
+      //  content:menu.name,placement:'right'}},
         [
           this.renderIcon(h, menu.meta ? menu.meta.icon : 'none', menu.fullPath),
           this.$t(getI18nKey(menu.fullPath))
