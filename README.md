@@ -52,6 +52,7 @@ $ npm install
 $ npm run serve
 ```
 更多信息参考 [使用文档](https://iczer.gitee.io/vue-antd-admin-docs)
+node版本为 v16.19.1
 
 ## 参与贡献
 我们非常欢迎你的贡献，你可以通过以下方式和我们一起共建 :star2:：
