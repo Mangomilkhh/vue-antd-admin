@@ -43,7 +43,7 @@ $ git clone https://github.com/iczer/vue-antd-admin.git
 ```
 ### yarn
 ```bash
-$ yarn install
+$ yarn install(推荐)
 $ yarn serve
 ```
 ### or npm
