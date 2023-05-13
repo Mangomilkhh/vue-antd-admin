@@ -4,11 +4,11 @@
 export default {
   data() {
     return {
-      msg: 'hello'
+      msg: 'CSS函数attr()创建的纯CSS提示工具'
     }
   },
   render(h) {
-    return h('div', this.msg)
+    return h('h3', this.msg)
   }
 }
 
