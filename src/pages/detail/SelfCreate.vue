@@ -7,6 +7,7 @@
         </div>
       </div>
 
+      <h2>文字提示工具:</h2>
       <a-row>
         <a-col :span="9">
           <!-- 使用h函数的组件 -->
@@ -60,6 +61,7 @@
             <template slot="title"> prompt text </template>
             Tooltip show when mouse enter. </a-tooltip
           ><br />
+          <!--  overlayStyle={background-color:red}无效 -->
           <a-tooltip placement="bottomRight">
             <template slot="title"> prompt text </template>
             Tooltip will show when mouse enter2.
@@ -71,7 +73,8 @@
               易使用：提供了预设的样式，使用方法简单、直观，不用编写大量代码
             </li>
             <li>丰富的选项：自定义触发方式、位置、箭头等</li>
-            <li>受限制：依赖不同版本ui框架，难以非常定制化的工具提示</li>
+            <li>受限制：依赖不同版本ui框架，难以非常定制</li>
+            <li>overlayClassName类名全局污染</li>
             <li>
               参考链接：<a
                 href="https://1x.antdv.com/components/tooltip-cn/#Tooltip-"
@@ -106,15 +109,17 @@
       />
       <a-button type="primary" @click="sendMsg">发送</a-button>
 
-      <div>
+      <div><br />
         <span>清除字符串两端的空格：</span>
         <a
           href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/trim"
+          target="_blank"
           >trim()</a
-        ><br>
-        <span>监听输入法打字过程：</span>
+        ><br />
+        <span>监听输入法打字：</span>
         <a
           href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/compositionstart_event"
+          target="_blank"
           >compositionstart、compositionupdate、compositionend</a
         >
         <br />
@@ -123,8 +128,8 @@
           class="event-log-contents"
           rows="5"
           cols="50"
-        ></textarea>
-        <!-- <button class="clear-log">Clear</button> -->
+        ></textarea><br />
+        <button class="clear-log">Clear</button>
       </div>
     </a-card>
   </page-layout>
@@ -166,6 +171,11 @@ export default {
     handleEvent(event) {
       const log = document.querySelector(".event-log-contents");
       log.textContent = log.textContent + `${event.type}: ${event.data}\n`;
+
+      const clearLog = document.querySelector(".clear-log");
+      clearLog.addEventListener("click", () => {
+        log.textContent = "";
+      });
     },
   },
 };
@@ -215,7 +225,7 @@ export default {
   content: attr(data-tooltip);
   position: absolute;
   width: 100px;
-  background-color: #062b45;
+  background-color: #13c2c2;
   color: #fff;
   text-align: center;
   padding: 10px;
@@ -241,7 +251,7 @@ export default {
   border-style: solid;
   opacity: 0;
   transition: opacity 1s;
-  border-color: #062b45 transparent transparent transparent;
+  border-color: #13c2c2 transparent transparent transparent;
   visibility: hidden;
 }
 
@@ -250,12 +260,13 @@ export default {
   opacity: 1;
   visibility: visible;
 }
+</style>
 
-/* antd框架的Tooltip组件修改样式 */
-.tooltipStyle {
-  .ant-tooltip-inner,
-  .ant-tooltip-arrow::before {
-    background-color: #13c2c2;
-  }
+<style lang="less">
+// antd框架的Tooltip组件修改样式
+// style标签不能加scoped局限在当前模块 得为全局的
+.tooltipStyle .ant-tooltip-inner,
+.tooltipStyle .ant-tooltip-arrow::before {
+  background-color: #13c2c2;
 }
 </style>
