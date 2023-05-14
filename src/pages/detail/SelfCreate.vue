@@ -92,13 +92,13 @@
         <div v-html="item"></div>
       </div>
 
-      <!-- prevent -->
+      <!-- prevent  -->
+      <!-- auto-focus 属性在页面加载时自动获得焦点 -->
       <a-input
         class="textareaInput"
         type="textarea"
         v-model="inputMsg"
-        rows="2"
-        auto-focus
+        rows="2" 
         placeholder="请输入内容"
         @keyup.enter.exact="sendMsg"
         @keyup.ctrl.enter="

@@ -6,7 +6,8 @@
         :active-key="active"
         :hide-add="true"
     >
-      <a-tooltip placement="left" :title="lockTitle" slot="tabBarExtraContent">
+    <!-- tooltip增加相同类名 overlayClassName="tooltipStyle" 测试确实全局污染 -->
+      <a-tooltip placement="left" :title="lockTitle" slot="tabBarExtraContent" overlayClassName="tooltipStyle">
         <a-icon
             theme="filled"
             @click="onLockClick"
