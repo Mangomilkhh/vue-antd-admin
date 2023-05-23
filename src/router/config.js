@@ -160,6 +160,11 @@ const options = {
               path: 'selfcreate',
               name: '自定义页面有很长很长很长的内容',
               component: () => import('@/pages/detail/SelfCreate')
+            },
+            {
+              path: 'selftable',
+              name: '可编辑单元格',
+              component: () => import('@/pages/detail/SelfTable')
             }
           ]
         },

@@ -104,8 +104,13 @@ const routerMap = {
   },
   selfCreate: {
     path: 'selfCreate',
-    name: '高级详情页',
+    name: '自定义页面',
     component: () => import('@/pages/detail/SelfCreate')
+  },
+  selfTable: {
+    path: 'selfTable',
+    name: '可编辑单元格',
+    component: () => import('@/pages/detail/SelfTable')
   },
   result: {
     name: '结果页',

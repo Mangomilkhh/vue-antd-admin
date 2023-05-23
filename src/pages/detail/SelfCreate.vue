@@ -18,9 +18,7 @@
             to see the tooltip.
             <br />
             You can also hover
-            <span class="tooltip" data-tooltip="This is another Tooltip Content"
-              >here</span
-            >
+            <span class="tooltip" data-tooltip="This is another Tooltip Content">here</span>
             to see another example.
             <br />
             <span class="tooltip" data-tooltip="Tooltip Content">Here</span>
@@ -35,17 +33,9 @@
             <li>提升网页性能：不依赖任何第三方库或框架，加载速度更快</li>
             <li>attr()函数是CSS中的内置函数,它返回所选元素的属性值</li>
             <li>
-              参考链接：<a
-                style="margin-right: 15px"
-                href="https://www.runoob.com/css/css-tooltip.html"
-                target="_blank"
-                >CSS 提示工具(Tooltip)</a
-              >
-              <a
-                href="https://www.runoob.com/cssref/func-attr.html"
-                target="_blank"
-                >CSS attr() 函数</a
-              >
+              参考链接：<a style="margin-right: 15px" href="https://www.runoob.com/css/css-tooltip.html" target="_blank">CSS
+                提示工具(Tooltip)</a>
+              <a href="https://www.runoob.com/cssref/func-attr.html" target="_blank">CSS attr() 函数</a>
             </li>
           </ol>
         </a-col>
@@ -59,8 +49,7 @@
 
           <a-tooltip overlayClassName="tooltipStyle">
             <template slot="title"> prompt text </template>
-            Tooltip show when mouse enter. </a-tooltip
-          ><br />
+            Tooltip show when mouse enter. </a-tooltip><br />
           <!--  overlayStyle={background-color:red}无效 -->
           <a-tooltip placement="bottomRight">
             <template slot="title"> prompt text </template>
@@ -76,11 +65,7 @@
             <li>受限制：依赖不同版本ui框架，难以非常定制</li>
             <li>overlayClassName类名全局污染</li>
             <li>
-              参考链接：<a
-                href="https://1x.antdv.com/components/tooltip-cn/#Tooltip-"
-                target="_blank"
-                >antd Tooltip 文字提示</a
-              >
+              参考链接：<a href="https://1x.antdv.com/components/tooltip-cn/#Tooltip-" target="_blank">antd Tooltip 文字提示</a>
             </li>
           </ol>
         </a-col>
@@ -88,49 +73,30 @@
     </a-card>
 
     <a-card class="typeWriter">
+      <h2>mac系统下，避免在中文输入法输入时就按'enter'发送的方法:</h2>
       <div v-for="(item, index) in chatLists" :key="index">
         <div v-html="item"></div>
       </div>
 
       <!-- prevent  -->
       <!-- auto-focus 属性在页面加载时自动获得焦点 -->
-      <a-input
-        class="textareaInput"
-        type="textarea"
-        v-model="inputMsg"
-        rows="2" 
-        placeholder="请输入内容"
-        @keyup.enter.exact="sendMsg"
-        @keyup.ctrl.enter="
-          () => {
-            inputMsg = inputMsg + '\n';
-          }
-        "
-      />
+      <a-input class="textareaInput" type="textarea" v-model="inputMsg" rows="2" placeholder="请输入内容"
+        @keydown.enter.prevent.exact="sendMsg" @keydown.ctrl.enter="() => {
+          inputMsg = inputMsg + '\n';
+        }" />
       <a-button type="primary" @click="sendMsg">发送</a-button>
-
       <div><br />
-        <span>清除字符串两端的空格：</span>
-        <a
-          href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/trim"
-          target="_blank"
-          >trim()</a
-        ><br />
+        <!-- <span>清除字符串两端的空格：</span>
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/trim"
+          target="_blank">trim()</a><br /> -->
         <span>监听输入法打字：</span>
-        <a
-          href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/compositionstart_event"
-          target="_blank"
-          >compositionstart、compositionupdate、compositionend</a
-        >
+        <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/compositionstart_event"
+          target="_blank">compositionstart、compositionupdate、compositionend</a>
         <br />
-        <textarea
-          readonly
-          class="event-log-contents"
-          rows="5"
-          cols="50"
-        ></textarea><br />
+        <textarea readonly class="event-log-contents" rows="5" cols="50"></textarea><br />
         <button class="clear-log">Clear</button>
-      </div>
+      </div><br>
+      <p>isComposing、keyCode属性</p>
     </a-card>
   </page-layout>
 </template>
@@ -161,11 +127,12 @@ export default {
     inputElement.addEventListener("compositionend", this.handleEvent);
   },
   methods: {
-    sendMsg() {
-      this.chatLists.push(this.inputMsg);
-      this.inputMsg = "";
-      // const typeContainer = document.querySelector(".typeWriter");
-      // typeContainer.scrollTop += 9999;
+    sendMsg(e) {
+      console.log('e',e);
+      if (!e.isComposing) {
+        this.chatLists.push(this.inputMsg);
+        this.inputMsg = "";
+      }
     },
 
     handleEvent(event) {
@@ -185,6 +152,7 @@ export default {
 .ant-card {
   margin-bottom: 24px;
 }
+
 /* css实现打字特效 */
 .wrapper {
   display: flex;
