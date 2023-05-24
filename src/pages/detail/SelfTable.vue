@@ -2,7 +2,7 @@
 	<page-layout title="自定义表格">
 		<a-card :bordered="false"  v-if="showComponent">
 			<div>
-				<a-button class="editable-add-btn" @click="handleAdd">Add</a-button>
+				<a-button @click="handleAdd">Add</a-button>
 				<a-button v-if="editable" @click="check">提交</a-button>
 				<a-button v-if="editable" @click="cancel">取消</a-button>
 				<a-button v-else @click="editable = true" type="primary">批量修改</a-button>
@@ -84,20 +84,25 @@ export default {
 	methods: {
 		check() {
 			this.editable = false;
-			this.dataSource=this.dataSource2
+      //提交this.dataSource给接口再刷新
+
 			//把组件设置显示隐藏的方式刷新
 			// this.showComponent = false
       // this.$nextTick(() => {
       //   this.showComponent = true
       // })
 
-			//给组件的key增加的方式刷新
+			//给组件的key增加的方式刷新,视图才可以显示最新值
 			// this.componentKey += 1;
 		},
 		cancel() {
 			this.editable = false;
+      //试试重新刷新接口,获取初始值
+
+      // this.dataSource=(接口的初始值)
+
 			// window.location.reload();//会刷新这个网页，性能不好
-			// this.selfRefresh('selftable_cancel'//刷新当前组件，也可以试试重新刷新接口
+			// this.selfRefresh('selftable_cancel'//刷新当前组件
 			// 	, {
 			// 		cachedKey: "/details/selftable163",
 			// 		// fullPath: "/details/selftable",
@@ -108,14 +113,16 @@ export default {
 			// 	})
 		},
 		onCellChange(key, dataIndex, value) {
-			this.dataSource2 = [...this.dataSource];
-			// this.dataSource2 = JSON.parse(JSON.stringify([...this.dataSource]));
-			const target = this.dataSource2.find(item => item.key === key);
+      //数据一直实时更新，就看视图怎么显示
+			// const dataSource2 = [...this.dataSource];
+			const dataSource2 = JSON.parse(JSON.stringify([...this.dataSource]));
+			const target = dataSource2.find(item => item.key === key);
 			if (target) {
 				target[dataIndex] = value;
+				this.dataSource = dataSource2;
 			}
 			// console.log('100',key, dataIndex, value);
-			// console.log('3213', this.dataSource, this.dataSource2);
+			// console.log('3213', this.dataSource, dataSource2);
 		},
 		onDelete() {
 			// const dataSource = [...this.dataSource];
@@ -142,42 +149,11 @@ export default {
 	/* position: relative; */
 }
 
-.editable-cell-input-wrapper,
-.editable-cell-text-wrapper {
-	/* padding-right: 24px; */
-}
-
 .editable-cell-text-wrapper {
 	padding: 5px 24px 5px 5px;
 }
 
-/* .editable-cell-icon,
-.editable-cell-icon-check {
-	position: absolute;
-	right: 0;
-	width: 20px;
-	cursor: pointer;
-}
-
-.editable-cell-icon {
-	line-height: 18px;
-	display: none;
-}
-
-.editable-cell-icon-check {
-	line-height: 28px;
-}
-
-.editable-cell:hover .editable-cell-icon {
-	display: inline-block;
-}
-
-.editable-cell-icon:hover,
-.editable-cell-icon-check:hover {
-	color: #108ee9;
-} */
-
-.editable-add-btn {
+.ant-btn {
 	margin: 0 10px 10px 0;
 }
 </style>
