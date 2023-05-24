@@ -7,7 +7,7 @@
         class="editable-cell-icon-check" @click="check" /> -->
     </div>
     <div v-else class="editable-cell-text-wrapper">
-      {{ value || ' ' }}
+      {{ value }}
       <!-- <a-icon type="edit" class="editable-cell-icon" @click="edit" /> -->
     </div>
   </div>
@@ -31,20 +31,18 @@ export default {
   },
   methods: {
     handleChange(e) {
-      const finalValue = e.target.value;
-      this.value = finalValue;
+      // this.value = e.target.value;
 
-      if (!this.changeStyle) {
-        this.InitialValue = this.text
-      }
-      if (finalValue !== this.InitialValue) {
-        this.changeStyle = true;
-      } else {
-        this.changeStyle = false;
-      }
+      // if (!this.changeStyle) {
+      //   this.InitialValue = this.text
+      // }
+      // if (e.target.value !== this.InitialValue) {
+      //   this.changeStyle = true;
+      // } else {
+      //   this.changeStyle = false;
+      // }
 
-      // console.log('5435', finalValue, this.InitialValue);
-      this.$emit('change', finalValue);
+      this.$emit('change', e.target.value);
     },
     // check() {
     //   this.editable = false;

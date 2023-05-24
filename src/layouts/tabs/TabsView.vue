@@ -34,6 +34,11 @@ export default {
   name: 'TabsView',
   i18n: require('./i18n'),
   components: {TabsHead, PageToggleTransition, Contextmenu, AdminLayout , AKeepAlive },
+  provide() { // 父组件中返回要传给下级的数据
+    return {
+      selfRefresh: this.refresh //使得每个页面都可以调用刷新方法
+    }
+  },
   data () {
     return {
       clearCaches: [],
@@ -138,7 +143,7 @@ export default {
       page = page || this.pageList.find(item => item.path === key)
       page.loading = true
       this.clearCache(page)
-      if (key === this.activePage) {
+      if (key === this.activePage||key=='selftable_cancel') {
         this.reloadContent(() => page.loading = false)
       } else {
         // 其实刷新很快，加这个延迟纯粹为了 loading 状态多展示一会儿，让用户感知刷新这一过程

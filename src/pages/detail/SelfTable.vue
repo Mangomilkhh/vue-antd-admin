@@ -1,12 +1,12 @@
 <template>
 	<page-layout title="自定义表格">
-		<a-card :bordered="false">
+		<a-card :bordered="false"  v-if="showComponent">
 			<div>
 				<a-button class="editable-add-btn" @click="handleAdd">Add</a-button>
 				<a-button v-if="editable" @click="check">提交</a-button>
 				<a-button v-if="editable" @click="cancel">取消</a-button>
 				<a-button v-else @click="editable = true" type="primary">批量修改</a-button>
-				<a-table bordered :data-source="dataSource" :columns="columns">
+				<a-table bordered :data-source="dataSource" :columns="columns" :key="componentKey">
 					<template slot="name" slot-scope="text, record">
 						<editable-cell :text="text" :editable="editable" @change="onCellChange(record.key, 'name', $event)" />
 					</template>
@@ -33,15 +33,18 @@ export default {
 	components: {
 		EditableCell, PageLayout
 	},
+	inject: ['selfRefresh'],//TabsView祖先文件provide过来的方法
 	data() {
 		return {
+			componentKey:0,
+			showComponent: true,
 			editable: false,
 			dataSource: [
 				{
 					key: '0',
 					name: 'zero',
-					age: '32',
-					address: 'Londonzero',
+					age: '3',
+					address: '',
 				},
 				{
 					key: '1',
@@ -80,37 +83,54 @@ export default {
 	},
 	methods: {
 		check() {
-			this.dataSource = this.dataSource2;
 			this.editable = false;
+			this.dataSource=this.dataSource2
+			//把组件设置显示隐藏的方式刷新
+			// this.showComponent = false
+      // this.$nextTick(() => {
+      //   this.showComponent = true
+      // })
+
+			//给组件的key增加的方式刷新
+			// this.componentKey += 1;
 		},
 		cancel() {
-			this.dataSource = JSON.parse(JSON.stringify([...this.dataSource]));
 			this.editable = false;
+			// window.location.reload();//会刷新这个网页，性能不好
+			// this.selfRefresh('selftable_cancel'//刷新当前组件，也可以试试重新刷新接口
+			// 	, {
+			// 		cachedKey: "/details/selftable163",
+			// 		// fullPath: "/details/selftable",
+			// 		// keyPath: "/details/selftable",
+			// 		loading: false,
+			// 		path: "/details/selftable",
+			// 		_init_: true
+			// 	})
 		},
 		onCellChange(key, dataIndex, value) {
-			// console.log('fff',key, dataIndex, value);
-			// this.dataSource2 = [...this.dataSource];
-			this.dataSource2 = JSON.parse(JSON.stringify([...this.dataSource]));
+			this.dataSource2 = [...this.dataSource];
+			// this.dataSource2 = JSON.parse(JSON.stringify([...this.dataSource]));
 			const target = this.dataSource2.find(item => item.key === key);
 			if (target) {
 				target[dataIndex] = value;
 			}
-			console.log('3213',this.dataSource,this.dataSource2);
+			// console.log('100',key, dataIndex, value);
+			// console.log('3213', this.dataSource, this.dataSource2);
 		},
-		onDelete(key) {
-			const dataSource = [...this.dataSource];
-			this.dataSource = dataSource.filter(item => item.key !== key);
+		onDelete() {
+			// const dataSource = [...this.dataSource];
+			// this.dataSource = dataSource.filter(item => item.key !== key);
 		},
 		handleAdd() {
-			const { count, dataSource } = this;
-			const newData = {
-				key: count,
-				name: `Edward King ${count}`,
-				age: 32,
-				address: `London, Park Lane no. ${count}`,
-			};
-			this.dataSource = [...dataSource, newData];
-			this.count = count + 1;
+			// const { count, dataSource } = this;
+			// const newData = {
+			// 	key: count,
+			// 	name: `Edward King ${count}`,
+			// 	age: 32,
+			// 	address: `London, Park Lane no. ${count}`,
+			// };
+			// this.dataSource = [...dataSource, newData];
+			// this.count = count + 1;
 		},
 	},
 };
