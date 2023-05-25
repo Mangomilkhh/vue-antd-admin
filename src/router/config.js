@@ -165,6 +165,11 @@ const options = {
               path: 'selftable',
               name: '可编辑单元格',
               component: () => import('@/pages/detail/SelfTable')
+            },
+            {
+              path: 'selftable2',
+              name: '可编辑单元格2',
+              component: () => import('@/pages/detail/SelfTable2')
             }
           ]
         },
