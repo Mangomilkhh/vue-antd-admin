@@ -53,15 +53,19 @@
         <a-timeline style="width: 200px">
           <a-timeline-item :key="index" v-for="(item, index) in actionList">
             <a-card style="margin-top: 10px">
-            <div class="section">
-              <input class="content-check" type="checkbox" id="c1" hidden />
-              <div class="content">
-                <!-- class="content" :class="listIndex.indexOf(index) != -1?'content':''" -->
-                <pre class="text">{{ item.content }}</pre>
-                <label for="c1" class="btn" @click="toggleDetail(index)"></label>
+              <div class="section">
+                <input class="content-check" type="checkbox" id="c1" hidden />
+                <div class="content">
+                  <!-- class="content" :class="listIndex.indexOf(index) != -1?'content':''" -->
+                  <pre class="text">{{ item.content }}</pre>
+                  <label
+                    for="c1"
+                    class="btn"
+                    @click="toggleDetail(index)"
+                  ></label>
+                </div>
               </div>
-            </div>
-          </a-card>
+            </a-card>
           </a-timeline-item>
         </a-timeline>
       </div>
@@ -146,28 +150,39 @@
           <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
           <detail-list-item term="过期时间">2018-08-08</detail-list-item>
           <a-tooltip placement="topLeft" title="描述">
-            <detail-list-item term="描述" class="longerContent"
-              >这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item
-            >
+            <detail-list-item term="描述" class="longerContent">
+              这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+            </detail-list-item>
           </a-tooltip>
         </detail-list>
         <a-divider style="margin: 16px 0" />
-        <detail-list title="用户个人信息" size="small" :col="4">
-          <detail-list-item
-            :key="item.key"
-            :term="item.value"
-            v-for="item in userList"
-          >
-            <span
+        <detail-list
+          title="内容被压缩时，显示省略号并悬浮气泡框："
+          size="small"
+          :col="4"
+        >
+          <div :key="item.key" :term="item.value" v-for="item in userList">
+            <!-- <span
               v-if="item.value == '用户所在组' && item.content.length > 20"
-              class="ignoreContent"
-            >
+              class="ignoreContent">
               <a-tooltip :title="item.content">
                 {{ item.content }}
               </a-tooltip>
             </span>
-            <span v-else>{{ item.content }}</span>
-          </detail-list-item>
+            <span v-else>{{ item.content }}</span> -->
+
+            <!-- 文本超出宽度时显示 -->
+            <a-tooltip :visible="item.showNameTip" :title="item.content">
+              <div class="tenant-item-name">
+                <span
+                  @mouseover="(e) => overName(e, item)"
+                  @mouseleave="item.showNameTip = false"
+                >
+                  {{ item.content }}
+                </span>
+              </div>
+            </a-tooltip>
+          </div>
         </detail-list>
       </a-card>
     </a-card>
@@ -246,22 +261,27 @@ const userList = [
   {
     key: "1",
     value: "用户名称",
-    content: "wahaha",
+    content: "wahahahahahahahaha",
+    showNameTip: false,
   },
   {
     key: "2",
     value: "用户部门",
-    content: "BI & planning",
+    content: "CNCB & BI & planning",
+    showNameTip: false,
   },
   {
     key: "3",
     value: "用户所在组",
     content: "Object > Data infrastructure",
+    showNameTip: false,
   },
   {
     key: "4",
     value: "用户入职时间",
-    content: new Date().toLocaleDateString(),
+    content:
+      new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString(),
+    showNameTip: false,
   },
 ];
 
@@ -339,7 +359,7 @@ export default {
       });
     },
     toggleDetail(index) {
-      console.log('2323',index);
+      console.log("2323", index);
       if (this.listIndex.indexOf(index) == -1) {
         this.listIndex.push(index);
       } else {
@@ -348,6 +368,17 @@ export default {
     },
     onTabChange(key) {
       console.log(key);
+    },
+
+    overName(e, item) {
+      //div父元素
+      const parentWidth = e.currentTarget.parentNode.offsetWidth;
+      //span子元素
+      const contentWidth = e.currentTarget.offsetWidth;
+      // 子元素>父元素，超出宽度时手动控制气泡框显示
+      if (contentWidth > parentWidth) {
+        item.showNameTip = true;
+      }
     },
   },
 };
@@ -386,12 +417,12 @@ export default {
 //用input输入框被选中做内容超出一定高度时隐藏
 .content {
   width: 400px;
-  max-height:200px;
+  max-height: 200px;
   overflow: hidden;
 }
 .content2 {
   width: 400px;
-  max-height:200px;
+  max-height: 200px;
   overflow: hidden;
 }
 .section {
@@ -465,5 +496,11 @@ pre {
 }
 .content-check:checked + .content .text {
   -webkit-mask: none;
+}
+
+.tenant-item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>
