@@ -1,4 +1,5 @@
 <template>
+  <!-- 首页dashboard：工作台 -->
   <page-layout :avatar="currUser.avatar">
     <div slot="headerContent">
       <div class="title">{{welcome.timeFix[lang]}}，{{currUser.name}}，{{welcome.message[lang]}}</div>

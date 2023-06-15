@@ -28,7 +28,7 @@
 
     <a-card title="需求动态">
       <div style="display: flex">
-        <a-timeline style="width: 200px">
+        <a-timeline style="width: 400px">
           <a-timeline-item :key="index" v-for="(item, index) in actionList">
             <a-card style="margin-top: 10px">
               {{ item.value }}
@@ -44,25 +44,6 @@
                     <a-icon
                       :type="listIndex.indexOf(index) != -1 ? 'up' : 'down'"
                   /></a>
-                </div>
-              </div>
-            </a-card>
-          </a-timeline-item>
-        </a-timeline>
-
-        <a-timeline style="width: 200px">
-          <a-timeline-item :key="index" v-for="(item, index) in actionList">
-            <a-card style="margin-top: 10px">
-              <div class="section">
-                <input class="content-check" type="checkbox" id="c1" hidden />
-                <div class="content">
-                  <!-- class="content" :class="listIndex.indexOf(index) != -1?'content':''" -->
-                  <pre class="text">{{ item.content }}</pre>
-                  <label
-                    for="c1"
-                    class="btn"
-                    @click="toggleDetail(index)"
-                  ></label>
                 </div>
               </div>
             </a-card>

@@ -1,4 +1,5 @@
 <template>
+  <!-- 分析页 -->
   <div class="analysis">
     <a-row style="margin-top: 0" :gutter="[24, 24]">
       <a-col :sm="24" :md="12" :xl="6">
