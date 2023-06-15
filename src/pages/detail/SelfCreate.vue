@@ -2,7 +2,9 @@
   <page-layout title="自定义页面">
     <draggable :list="dragArray" group="people" @end="endDrag">
       <!-- @start="startDrag" -->
-      <a-card v-for="element in dragArray" :key="element.id">{{ element.name }}</a-card>
+      <a-card v-for="element in dragArray" :key="element.id">{{
+        element.name
+      }}</a-card>
     </draggable>
 
     <a-card :bordered="false">
@@ -138,6 +140,8 @@
       <br />
       <p>isComposing、keyCode属性</p>
     </a-card>
+
+    <picker v-show="showEmoji" @select="addEmoji"></picker>
   </page-layout>
 </template>
 
@@ -149,12 +153,13 @@ import VNode from "./vnode";
 //翻译：未知的自定义元素：＜页面布局＞-您是否正确注册了组件？对于递归组件，请确保提供“name”选项。
 import PageLayout from "../../layouts/PageLayout";
 import draggable from "vuedraggable";
+import { Picker } from "emoji-mart-vue";
 
 export default {
   name: "SelfCreate",
   //这里VNode报错：The "VNode" component has been registered but not used.
   //原来是引入了VNode.js组件，但是没有在template使用
-  components: { VNode, PageLayout, draggable },
+  components: { VNode, PageLayout, draggable, Picker },
   data() {
     return {
       inputMsg: "",
@@ -164,6 +169,7 @@ export default {
         { id: 2, name: "++可拖拽组件2" },
         { id: 3, name: "++可拖拽组件3" },
       ],
+      showEmoji: true,
     };
   },
   mounted() {
@@ -173,10 +179,10 @@ export default {
     inputElement.addEventListener("compositionend", this.handleEvent);
 
     let draList = JSON.parse(window.localStorage.getItem("draggerCard"));
-    draList && (this.dragArray = draList)
+    draList && (this.dragArray = draList);
   },
-  destroyed(){
-    console.log('123',this.dragArray);
+  destroyed() {
+    console.log("123", this.dragArray);
     // window.localStorage.removeItem("draggerCard");
   },
   methods: {
@@ -188,7 +194,10 @@ export default {
       }
     },
     endDrag() {
-      window.localStorage.setItem("draggerCard", JSON.stringify(this.dragArray));
+      window.localStorage.setItem(
+        "draggerCard",
+        JSON.stringify(this.dragArray)
+      );
     },
     handleEvent(event) {
       const log = document.querySelector(".event-log-contents");
@@ -198,6 +207,10 @@ export default {
       clearLog.addEventListener("click", () => {
         log.textContent = "";
       });
+    },
+
+    addEmoji(emoji) {
+      console.log("56", emoji);
     },
   },
 };
