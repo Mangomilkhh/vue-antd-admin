@@ -10,6 +10,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const assetsCDN = {
   // webpack build externals
+  //externals为不打包的文件
   externals: {
     vue: 'Vue',
     'vue-router': 'VueRouter',
@@ -22,6 +23,7 @@ const assetsCDN = {
   },
   css: [
   ],
+  //使用 CDN 方式引入资源库
   js: [
     '//cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js',
     '//cdn.jsdelivr.net/npm/vue-router@3.3.4/dist/vue-router.min.js',
@@ -99,6 +101,31 @@ module.exports = {
         return args
       })
     }
+
+    //https://www.jianshu.com/p/e018f8b890bd
+    //vue 脚手架默认开启了 preload 与 prefetch，当项目很大时，会增加首屏加载时间。
+    // 移除 preload(预载) 插件
+    config.plugins.delete('preload')
+    // 移除 prefetch(预取) 插件
+    config.plugins.delete('prefetch')
+
+    //清除 console.log   安装npm install terser-webpack-plugin --save-dev
+    config.optimization.minimizer('terser').tap((args) => {
+      args[0].terserOptions.compress.drop_console = true
+      return args
+    })
+
+    //图片压缩
+    config.module
+    .rule('images')
+    .use('imageWebpackLoader')
+    .loader('image-webpack-loader')
+    .options({
+      disable: process.env.NODE_ENV === 'development', // 开发环境下禁止压缩
+      gifsicle: {
+        interlaced: false
+      }
+    })
   },
   css: {
     loaderOptions: {
