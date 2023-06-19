@@ -165,9 +165,9 @@ export default {
       inputMsg: "",
       chatLists: [],
       dragArray: [
-        { id: 1, name: "++可拖拽组件1" },
-        { id: 2, name: "++可拖拽组件2" },
-        { id: 3, name: "++可拖拽组件3" },
+        { index: 1, name: "可拖拽组件1" },
+        { index: 2, name: "可拖拽组件2" },
+        { index: 3, name: "可拖拽组3" },
       ],
       showEmoji: true,
     };
@@ -178,12 +178,22 @@ export default {
     inputElement.addEventListener("compositionupdate", this.handleEvent);
     inputElement.addEventListener("compositionend", this.handleEvent);
 
-    let draList = JSON.parse(window.localStorage.getItem("draggerCard"));
-    draList && (this.dragArray = draList);
-  },
-  destroyed() {
-    console.log("123", this.dragArray);
-    // window.localStorage.removeItem("draggerCard");
+    //localstorage有存储拖拽过的记录时：
+    let dragOldArray = JSON.parse(window.localStorage.getItem("draggerCard"));
+
+    var dragNewArray = [];
+    dragOldArray
+      ?.map((oldObj) =>
+        //通过过滤保留localstorage里每个对象的index的顺序，对比原本数组的index，更新数组内其他内容
+        this.dragArray.filter((obj) => obj.index === oldObj.index)
+      )
+      .forEach(function (e) {
+        //得到的数据依次push到空数组赋给原本数组
+        dragNewArray.push(e[0]);
+      });
+
+    dragOldArray && (this.dragArray = dragNewArray);
+    console.log("345", dragOldArray, dragNewArray);
   },
   methods: {
     sendMsg(e) {
