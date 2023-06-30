@@ -1,9 +1,10 @@
 let path = require('path')
 const webpack = require('webpack')
 const ThemeColorReplacer = require('webpack-theme-color-replacer')
-const {getThemeColors, modifyVars} = require('./src/utils/themeUtil')
-const {resolveCss} = require('./src/utils/theme-color-replacer-extend')
+const { getThemeColors, modifyVars } = require('./src/utils/themeUtil')
+const { resolveCss } = require('./src/utils/theme-color-replacer-extend')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const productionGzipExtensions = ['js', 'css']
 const isProd = process.env.NODE_ENV === 'production'
@@ -89,7 +90,7 @@ module.exports = {
     if (isProd) {
       config.plugin('optimize-css')
         .tap(args => {
-            args[0].cssnanoOptions.preset[1].colormin = false
+          args[0].cssnanoOptions.preset[1].colormin = false
           return args
         })
     }
@@ -98,8 +99,8 @@ module.exports = {
       config.plugin('html')
         .tap(args => {
           args[0].cdn = assetsCDN
-        return args
-      })
+          return args
+        })
     }
 
     //https://www.jianshu.com/p/e018f8b890bd
@@ -109,6 +110,11 @@ module.exports = {
     // 移除 prefetch(预取) 插件
     config.plugins.delete('prefetch')
 
+    // 展示可视化文件占用信息，上线之前注释掉
+    config
+      .plugin('webpack-bundle-analyzer')
+      .use(BundleAnalyzerPlugin)
+
     //清除 console.log   安装npm install terser-webpack-plugin --save-dev
     config.optimization.minimizer('terser').tap((args) => {
       args[0].terserOptions.compress.drop_console = true
@@ -116,16 +122,16 @@ module.exports = {
     })
 
     //图片压缩
-    config.module
-    .rule('images')
-    .use('imageWebpackLoader')
-    .loader('image-webpack-loader')
-    .options({
-      disable: process.env.NODE_ENV === 'development', // 开发环境下禁止压缩
-      gifsicle: {
-        interlaced: false
-      }
-    })
+    // config.module
+    // .rule('images')
+    // .use('imageWebpackLoader')
+    // .loader('image-webpack-loader')
+    // .options({
+    //   disable: process.env.NODE_ENV === 'development', // 开发环境下禁止压缩
+    //   gifsicle: {
+    //     interlaced: false
+    //   }
+    // })
   },
   css: {
     loaderOptions: {

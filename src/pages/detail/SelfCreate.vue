@@ -1,6 +1,7 @@
 <template>
   <page-layout title="自定义页面">
-    <draggable :list="dragArray" group="people" @end="endDrag">
+    <!-- https://github.com/SortableJS/Vue.Draggable#live-demos -->
+    <draggable v-model="dragArray" @end="endDrag" style="display: flex">
       <!-- @start="startDrag" -->
       <a-card v-for="element in dragArray" :key="element.id">{{
         element.name
@@ -167,7 +168,7 @@ export default {
       dragArray: [
         { index: 1, name: "可拖拽组件1" },
         { index: 2, name: "可拖拽组件2" },
-        { index: 3, name: "可拖拽组3" },
+        { index: 3, name: "可拖拽组件3" },
       ],
       showEmoji: true,
     };
@@ -193,7 +194,7 @@ export default {
       });
 
     dragOldArray && (this.dragArray = dragNewArray);
-    console.log("345", dragOldArray, dragNewArray);
+    // console.log("345", dragOldArray, dragNewArray);
   },
   methods: {
     sendMsg(e) {
