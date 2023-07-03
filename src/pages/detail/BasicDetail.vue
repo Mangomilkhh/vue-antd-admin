@@ -7,7 +7,7 @@
         <!-- 参考：https://juejin.cn/post/7226540105698197563 -->
 
         <div contenteditable="true">
-          Make CSS Ellipsis Beginning>of String and number
+          Make CSS Ellipsis Beginning of String and number
         </div>
         <!-- direction 在处理非纯数字文本上的规则与其他不一致 -->
         <div>13993199751 > 18037893546 > 4477656</div>
@@ -23,7 +23,8 @@
 
       <h4>用bdi标签：</h4>
       <div class="use-bdi">
-        <bdi dir="ltr">13993199751 > 18037893546 > 4477656</bdi>
+        <!--  dir="ltr" -->
+        <bdi>13993199751 > 18037893546 > 4477656</bdi>
       </div>
     </a-card>
 
@@ -246,12 +247,11 @@ export default {
       white-space: nowrap;
 
       //设置文本排列的方向  rtl表示从右到左 ltr相反
-      //unicode-bidi：处理双向文字的算法是Unicode双向算法。
-      //而 unicode-bidi 这个属性是用来重写这个算法的。
       direction: rtl;
 
       span {
         direction: ltr;
+        //unicode-bidi：处理双向文字的算法是Unicode双向算法
         //用于覆盖默认的 Unicode 双向算法以控制文本的显示方向。
         unicode-bidi: bidi-override;
       }
@@ -265,8 +265,8 @@ export default {
     direction: rtl;
 
     span::before {
-      content: "q"; //通过伪元素破坏其纯数字的性质 不优雅
-      // content: "\200e";// Unicode字符方向控制工具强制控制文本排序
+      // content: "q"; //通过伪元素破坏其纯数字的性质 不优雅
+      content: "\200e";// Unicode字符方向控制工具  强制控制文本排序
       opacity: 0;
       font-size: 0;
     }
@@ -275,8 +275,8 @@ export default {
   .use-bdi {
     overflow: hidden;
     text-overflow: ellipsis;
-    direction: rtl;
     white-space: nowrap;
+    direction: rtl;
   }
 }
 </style>
