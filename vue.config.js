@@ -4,7 +4,11 @@ const ThemeColorReplacer = require('webpack-theme-color-replacer')
 const { getThemeColors, modifyVars } = require('./src/utils/themeUtil')
 const { resolveCss } = require('./src/utils/theme-color-replacer-extend')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+
+// 
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// 
 
 const productionGzipExtensions = ['js', 'css']
 const isProd = process.env.NODE_ENV === 'production'
@@ -105,15 +109,30 @@ module.exports = {
 
     //https://www.jianshu.com/p/e018f8b890bd
     //vue 脚手架默认开启了 preload 与 prefetch，当项目很大时，会增加首屏加载时间。
+
+    // compass
+
+
     // 移除 preload(预载) 插件
     config.plugins.delete('preload')
     // 移除 prefetch(预取) 插件
     config.plugins.delete('prefetch')
 
+    //抽离 css 支持按需加载
+    let miniCssExtractPlugin = new MiniCssExtractPlugin({
+      filename: 'assets/[name].[hash:8].css',
+      chunkFilename: 'assets/[name].[hash:8].css'
+    })
+    config.plugin('extract-css').use(miniCssExtractPlugin)
+
     // 展示可视化文件占用信息，上线之前注释掉
     config
       .plugin('webpack-bundle-analyzer')
       .use(BundleAnalyzerPlugin)
+
+
+
+    // compass
 
     //清除 console.log   安装npm install terser-webpack-plugin --save-dev
     config.optimization.minimizer('terser').tap((args) => {

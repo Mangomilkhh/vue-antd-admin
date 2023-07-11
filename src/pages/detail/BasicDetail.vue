@@ -28,6 +28,10 @@
       </div>
     </a-card>
 
+    <a-card>
+      <div style="width: 100%; height: 80px" id="base-echart"></div>
+    </a-card>
+
     <a-card :bordered="false">
       <detail-list title="退款详情">
         <detail-list-item term="取货单号">1000000000</detail-list-item>
@@ -69,6 +73,7 @@
 <script>
 import DetailList from "../../components/tool/DetailList";
 import PageLayout from "../../layouts/PageLayout";
+import * as echarts from "echarts";
 
 const DetailListItem = DetailList.Item;
 
@@ -225,6 +230,54 @@ export default {
       scheduleData,
     };
   },
+  mounted() {
+    this.initCharts();
+  },
+  methods: {
+    initCharts() {
+      this.chart = echarts.init(document.getElementById("base-echart"));
+      this.chart.setOption({
+        grid: {
+          // left: "18%",
+          // right: "15%",
+          // bottom: "30%",
+          // containLabel: true,
+        },
+        xAxis: {
+          type: "value",
+        },
+        yAxis: {
+          type: "category",
+          data: ["数据看板", "查询数据", "下载数据"],
+        },
+        series: [
+          {
+            data: [
+              {
+                value: 23,
+                itemStyle: {
+                  color: "#ff8a6e",
+                },
+              },
+              {
+                value: 55,
+                itemStyle: {
+                  color: "#a7ea80",
+                },
+              },
+              {
+                value: 97,
+                itemStyle: {
+                  color: "#6fa9f9",
+                },
+              },
+            ],
+            type: "bar",
+          },
+        ],
+      });
+    },
+  },
 };
 </script>
 
@@ -266,7 +319,7 @@ export default {
 
     span::before {
       // content: "q"; //通过伪元素破坏其纯数字的性质 不优雅
-      content: "\200e";// Unicode字符方向控制工具  强制控制文本排序
+      content: "\200e"; // Unicode字符方向控制工具  强制控制文本排序
       opacity: 0;
       font-size: 0;
     }
