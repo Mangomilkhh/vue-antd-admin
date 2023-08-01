@@ -25,7 +25,54 @@
               :editable="editable"
               @change="onCellChange(record.key, col, $event)"
             />
+          
+
+          <div v-for="col in ['name', 'age', 'address']" :key="col" :slot="col">
+            <a-form
+              :form="form"
+              :label-col="{ span: 5 }"
+              :wrapper-col="{ span: 12 }"
+              layout="inline"
+            >
+              <a-form-item label="Note">
+                <a-input
+                  v-decorator="[
+                    'note',
+                    {
+                      rules: [
+                        { required: true, message: 'Please input your note!' },
+                      ],
+                    },
+                  ]"
+                />
+              </a-form-item>
+              <a-form-item label="Gender">
+                <a-select
+                  :getPopupContainer="(trigger) => trigger.parentNode"
+                  v-decorator="[
+                    'gender',
+                    {
+                      rules: [
+                        {
+                          required: true,
+                          message: 'Please select your gender!',
+                        },
+                      ],
+                    },
+                  ]"
+                >
+                  <a-select-option value="male"> male </a-select-option>
+                  <a-select-option value="female"> female </a-select-option>
+                </a-select>
+              </a-form-item>
+              <a-form-item label="日期："
+                ><a-date-picker
+                  :getCalendarContainer="(trigger) => trigger.parentNode"
+              /></a-form-item>
+            </a-form>
           </div>
+        </div>
+
           <template slot="operation" slot-scope="text, record">
             <a href="javascript:;" @click="editRow(record)">编辑</a>
           </template>
@@ -42,7 +89,12 @@
     >
       <!-- <p>{{ modalText }}</p> -->
       <!--  @submit="handleSubmit" -->
-      <a-form :form="form" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+      <a-form
+        :form="form"
+        :label-col="{ span: 5 }"
+        :wrapper-col="{ span: 12 }"
+        layout="inline"
+      >
         <a-form-item label="Note">
           <a-input
             v-decorator="[
@@ -216,7 +268,7 @@ export default {
         target[dataIndex] = value;
         this.dataSource = dataSource2;
       }
-      console.log('100',key, dataIndex, value);
+      console.log("100", key, dataIndex, value);
       // console.log('3213', this.dataSource, dataSource2);
     },
     onDelete() {
