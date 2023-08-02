@@ -26,6 +26,9 @@
         <!--  dir="ltr" -->
         <bdi>13993199751 > 18037893546 > 4477656</bdi>
       </div>
+
+      <!-- csv、xls、xlsx -->
+      <button @click="beforeUploadShopId('1111.csv')">8888</button>
     </a-card>
 
     <a-card>
@@ -276,6 +279,39 @@ export default {
           },
         ],
       });
+    },
+    beforeUploadShopId(file) {
+      // if (this.shopIdList.length > 0) {
+      //   this.$message.warning("只允许上传一个文件哦", 3);
+      //   return false;
+      // }
+      // if (file.indexOf(".csv") == -1) {
+      //   this.$message.warning("只允许上传csv、xls、xlsx格式文件", 3);
+      // } else if (file.indexOf(".xls") == -1) {
+      //   this.$message.warning("只允许上传csv、xls、xlsx格式文件", 3);
+      // } else if (file.indexOf(".xlsx") == -1) {
+      //   this.$message.warning("只允许上传csv、xls、xlsx格式文件", 3);
+      //   return false;
+      // }
+      // this.shopIdList = [...this.shopIdList, file];
+
+      // 正确做法
+      // != -1为包含   ==-1为不包含
+      // if (
+      //   file.indexOf(".csv") == -1 &&
+      //   file.indexOf(".xls") == -1 &&
+      //   file.indexOf(".xlsx") == -1
+      // ) {
+      //   this.$message.warning("只允许上传csv、xls、xlsx格式文件");
+      //   return false;
+      // }
+
+      // 原本做法   包含.csv时会报错
+      if (file.indexOf(".csv") != -1) {
+        this.$message.warning("只允许上传csv、xls、xlsx格式文件");
+        return false;
+      }
+      return false;
     },
   },
 };
