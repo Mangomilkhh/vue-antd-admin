@@ -8,6 +8,7 @@
         <a-button v-else @click="editable = true" type="primary"
           >批量修改</a-button
         >
+        <a-button @click="buttonClick">我是按钮</a-button>
         <a-table
           bordered
           :data-source="dataSource"
@@ -15,17 +16,19 @@
           :key="componentKey"
         >
           <div
-            v-for="col in ['name', 'age', 'address']"
-            :key="col"
-            :slot="col"
+            v-for="(col, index) in columns"
+            :key="index"
+            :slot="col.type"
             slot-scope="text, record"
           >
             <editable-cell
-              :text="text"
+              :col="col"
+              :slotInfo="{ text, record }"
               :editable="editable"
-              @change="onCellChange(record.key, col, $event)"
+              @change="onCellChange(record.key, col.dataIndex, $event)"
             />
-        </div>
+            <!-- 行的key  列表头名字  值-->
+          </div>
 
           <template slot="operation" slot-scope="text, record">
             <a href="javascript:;" @click="editRow(record)">编辑</a>
@@ -146,12 +149,14 @@ export default {
           dataIndex: "name",
           width: "30%",
           align: "center",
-          scopedSlots: { customRender: "name" },
+          type: "input",
+          scopedSlots: { customRender: "input" },
         },
         {
           title: "age",
           dataIndex: "age",
-          scopedSlots: { customRender: "address" },
+          type: "select",
+          scopedSlots: { customRender: "select" },
         },
         {
           title: "address",
@@ -172,6 +177,20 @@ export default {
     };
   },
   methods: {
+    //用async定义一个异步函数
+    // 定义一个异步方法很简单，在函数前边加上 async 关键字即可。
+    // 接口文件里的函数
+    async sayHello(num) {
+      return "Hello，亚瑟王" + num;
+    },
+    // await 会让它后面的表达式变成同步，当该表达式执行完成后，才会继续执行下面的代码
+    async buttonClick() {
+      await this.sayHello("1").then((result) => {
+        console.log(result);
+      });
+      console.log("虽然我在后边，但是我先执行");
+    },
+
     editRow(record) {
       this.showModal = true;
       this.modalText = record;
@@ -214,16 +233,20 @@ export default {
       // 		_init_: true
       // 	})
     },
+
     onCellChange(key, dataIndex, value) {
       //数据一直实时更新，就看视图怎么显示
       const dataSource2 = [...this.dataSource];
       const target = dataSource2.find((item) => item.key === key);
+
       if (target) {
         target[dataIndex] = value;
         this.dataSource = dataSource2;
       }
-      console.log("100", key, dataIndex, value,target);
-      console.log('3213', dataSource2);
+      // console.log("aaa", key, dataIndex, value);
+
+      // dataSource2一共20行 提交去接口 取消就恢复原本数据
+      console.log("bbb", dataSource2);
     },
     onDelete() {
       // const dataSource = [...this.dataSource];
