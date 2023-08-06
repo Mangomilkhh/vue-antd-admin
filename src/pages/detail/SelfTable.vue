@@ -25,7 +25,8 @@
               :col="col"
               :slotInfo="{ text, record }"
               :editable="editable"
-              @change="onCellChange(record.key, col.dataIndex, $event)"
+              @change="onCellChange(record, col, $event)"
+              @focus="onCellFocus(record, col, $event)"
             />
             <!-- 行的key  列表头名字  值-->
           </div>
@@ -132,7 +133,7 @@ export default {
           key: "0",
           name: "zero",
           age: "3",
-          address: "",
+          address: "9999",
         },
         {
           key: "1",
@@ -155,14 +156,22 @@ export default {
         {
           title: "age",
           dataIndex: "age",
-          type: "select",
-          scopedSlots: { customRender: "select" },
+          type: "multiple_select",
+          scopedSlots: { customRender: "multiple_select" },
+          options: {
+            change_event_api: "get_data/api",
+            select: ["a", "b", "c"],
+          },
         },
         {
           title: "address",
           dataIndex: "address",
+          type: "select",
           width: "30",
-          scopedSlots: { customRender: "address" },
+          scopedSlots: { customRender: "select" },
+          options: {
+            select: ["q", "w", "e"],
+          },
         },
         {
           title: "operation",
@@ -170,11 +179,15 @@ export default {
           scopedSlots: { customRender: "operation" },
         },
       ],
+      oldcolumns: [],
       showModal: false,
       modalText: "",
       formLayout: "horizontal",
       form: this.$form.createForm(this, { name: "coordinated" }),
     };
+  },
+  mounted() {
+    this.oldcolumns = JSON.parse(JSON.stringify(this.columns));
   },
   methods: {
     //用async定义一个异步函数
@@ -234,19 +247,54 @@ export default {
       // 	})
     },
 
-    onCellChange(key, dataIndex, value) {
-      //数据一直实时更新，就看视图怎么显示
-      const dataSource2 = [...this.dataSource];
-      const target = dataSource2.find((item) => item.key === key);
+    // 行record.key  列col.dataIndex  值
+    onCellChange(record, col, value) {
+      console.log("222", record.key, col.dataIndex, value);
+      // 点击当前选择框时，判断是否要根据前面的值改变当前选项
 
-      if (target) {
-        target[dataIndex] = value;
-        this.dataSource = dataSource2;
+      var newName = "address";
+      var changeValue = this.dataSource.find((item) => item.key === record.key);
+
+      if (col.options.change_event_api) {
+        //调用api得到 表头名字 newName 数组内容array
+        changeValue[newName] = "被清空";
+        console.log("777", changeValue[newName]);
       }
-      // console.log("aaa", key, dataIndex, value);
+
+      //数据一直实时更新，就看视图怎么显示
+      // const dataSource2 = [...this.dataSource];
+      // // record 为这一行全部数据
+      // const newRecord = dataSource2.find((item) => item.key === record.key);
+
+      // if (newRecord) {
+      //   newRecord[col.dataIndex] = value;
+      // }
 
       // dataSource2一共20行 提交去接口 取消就恢复原本数据
-      console.log("bbb", dataSource2);
+      // console.log("bbb", dataSource2);
+    },
+    onCellFocus(record, col) {
+      var newName = "address";
+      var previousName = "age";
+      var newArray = ["aaa", "bbb", "ccc"];
+
+      if (col.dataIndex == newName) {
+        // changeValue[newName] = value;
+        // var oldCol=JSON.parse(JSON.stringify(col));
+        // 判断前面的值是否选到需要后面选项改变的c选项
+        const isExist = record[previousName].indexOf("c") !== -1;
+        const columnsItem = this.columns.find(
+          (item) => item.dataIndex === newName
+        );
+        if (isExist) {
+          columnsItem.options.select = newArray;
+        } else {
+          const oldColumnsItem = this.oldcolumns.find(
+            (item) => item.dataIndex === newName
+          );
+          columnsItem.options.select = oldColumnsItem.options.select;
+        }
+      }
     },
     onDelete() {
       // const dataSource = [...this.dataSource];
