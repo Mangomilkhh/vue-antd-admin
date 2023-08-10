@@ -1,0 +1,1145 @@
+{
+    "code": 200,
+    "data": {
+        "action_column": {
+            "查看": {
+                "api": "biwiki/view_table_info",
+                "fixed": "right",
+                "para": [
+                    "full_table_name"
+                ]
+            },
+            "编辑": {
+                "api": "biwiki/get_update_column",
+                "fixed": "right",
+                "para": [
+                    "full_table_name"
+                ],
+                "submit_api": "biwiki/update_table_info"
+            }
+        },
+        "data": [
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_bpm/tw_livestream_access/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_bpm.tw_livestream_access",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": "neil.zhu@shopee.com",
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_bpm",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/ads_expenditure__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.ads_expenditure__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/ads_performance__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.ads_performance__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/ads_shop_level_performance__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.ads_shop_level_performance__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/ads_topup__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.ads_topup__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/cb_global_category__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.cb_global_category__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/chat_history_tab__compliance/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.chat_history_tab__compliance",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/cncb_shop_info__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.cncb_shop_info__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/cncb_user_info__cncb_ads/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.cncb_user_info__cncb_ads",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/dim_category__rm/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.dim_category__rm",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/dim_exrate__compliance/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.dim_exrate__compliance",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/dim_exrate__seller_ops/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.dim_exrate__seller_ops",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/dwd_order_item_all_ent_df__reg_s0_live__sls/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.dwd_order_item_all_ent_df__reg_s0_live__sls",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/item_map__sip/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.item_map__sip",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing_ops/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing_ops",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing__bd_brand/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing__bd_brand",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing__bd_campaign/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing__bd_campaign",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing__bd_electronics/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing__bd_electronics",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing__bd_fashion/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing__bd_fashion",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            },
+            {
+                "bi_editor": null,
+                "bi_remark": null,
+                "data_range": null,
+                "datamap_link": "https://datasuite.shopee.io/datamap/api/v3/dataWarehouse/tableInfo/cncbbi_business/listing__bd_fmcg/view",
+                "dataset_name": null,
+                "frequency": null,
+                "full_table_name": "cncbbi_business.listing__bd_fmcg",
+                "granularity": null,
+                "is_partition_table": "0",
+                "metrics_topic": null,
+                "owner": null,
+                "products_used": null,
+                "related_report": null,
+                "schedule_time": null,
+                "schema": "cncbbi_business",
+                "sql_sample": null,
+                "table_type": null,
+                "task_link": null,
+                "update_date": null,
+                "user_guide": null
+            }
+        ],
+        "table_headers": [
+            {
+                "cnname": "数据库",
+                "column_order": 1,
+                "ellipsis": true,
+                "name": "schema",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        "cncbbi_general"
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "cncbbi_general",
+                        "cncbbi_ops",
+                        "cncbbi_external",
+                        "cncbbi_pl",
+                        "cncbbi_bpm",
+                        "cncbbi_sls",
+                        "cb_mart",
+                        "cncbbi_engineering"
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input_select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "表名",
+                "column_order": 2,
+                "ellipsis": true,
+                "name": "full_table_name",
+                "options": {
+                    "change_event_api": "biwiki/get_table_data",
+                    "change_para": [
+                        "full_table_name"
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "search_input",
+                "value": "",
+                "value_type": "text",
+                "width": 250
+            },
+            {
+                "cnname": "表所有者",
+                "column_order": 3,
+                "ellipsis": true,
+                "name": "owner",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "user_search",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "更新日期",
+                "column_order": 4,
+                "ellipsis": true,
+                "name": "update_date",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "current_date",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "date",
+                "value": "",
+                "value_type": "date",
+                "width": 100
+            },
+            {
+                "cnname": "表的类型",
+                "column_order": 5,
+                "ellipsis": true,
+                "name": "table_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        "DWS Table"
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "required_fields": {
+                        "Temp Table": [
+                            "update_date",
+                            "granularity",
+                            "data_range",
+                            "metrics_topic",
+                            "datamap_link",
+                            "products_used",
+                            "task_link",
+                            "related_report"
+                        ]
+                    },
+                    "select": [
+                        "Temp Table",
+                        "BI Product Table",
+                        "Upstream Table",
+                        "Pending Table",
+                        "Dataset Table"
+                    ],
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "数据颗粒度",
+                "column_order": 6,
+                "ellipsis": true,
+                "name": "granularity",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        "shop"
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "seller",
+                        "shopid",
+                        "itemid",
+                        "modelid",
+                        "orderid",
+                        "shop*L1",
+                        "shop*L2",
+                        "shop*L3"
+                    ],
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "数据范围",
+                "column_order": 7,
+                "ellipsis": true,
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "CNCB",
+                        "Shopee",
+                        "SMT"
+                    ],
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "指标类型",
+                "column_order": 8,
+                "ellipsis": true,
+                "name": "metrics_topic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "Order",
+                        "SKU",
+                        "Promotion",
+                        "Seller",
+                        "User",
+                        "Traffic",
+                        "Revenue",
+                        "Cost",
+                        "Paid Ads",
+                        "Marketing Solution",
+                        "Livestream",
+                        "Wallet",
+                        "LFF",
+                        "Cross Function"
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "multiple_select",
+                "value": "",
+                "value_type": "json",
+                "width": 100
+            },
+            {
+                "cnname": "更新频率",
+                "column_order": 9,
+                "ellipsis": true,
+                "name": "frequency",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        "Daily"
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "Daily",
+                        "Hourly",
+                        "Weekly",
+                        "Monthly",
+                        "Manual"
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input_select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "定时更新时间",
+                "column_order": 10,
+                "ellipsis": true,
+                "name": "schedule_time",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input_select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "使用指南",
+                "column_order": 11,
+                "ellipsis": true,
+                "name": "user_guide",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "placeholder": "",
+                    "required": false,
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "表信息链接",
+                "column_order": 12,
+                "ellipsis": true,
+                "name": "datamap_link",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "text",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "使用的产品",
+                "column_order": 13,
+                "ellipsis": true,
+                "name": "products_used",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        "Data Studio"
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        "Data Hub",
+                        "Data Studio",
+                        "Redash",
+                        "Other"
+                    ],
+                    "sorter": true,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input_select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "任务链接",
+                "column_order": 14,
+                "ellipsis": true,
+                "name": "task_link",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "placeholder": "",
+                    "required": true,
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "数据集名字",
+                "column_order": 15,
+                "ellipsis": true,
+                "name": "dataset_name",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "placeholder": "",
+                    "required": false,
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "input",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "关键代码示例",
+                "column_order": 16,
+                "ellipsis": true,
+                "name": "sql_sample",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "placeholder": "",
+                    "required": false,
+                    "sorter": false,
+                    "split": true
+                },
+                "part_order": 1,
+                "type": "textarea",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "备注",
+                "column_order": 17,
+                "ellipsis": true,
+                "name": "bi_remark",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "placeholder": "",
+                    "required": false,
+                    "sorter": false,
+                    "split": true
+                },
+                "part_order": 1,
+                "type": "textarea",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "相关报告",
+                "column_order": 18,
+                "ellipsis": true,
+                "name": "related_report",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        
+                    ],
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "multiple_select",
+                "value": "",
+                "value_type": "json",
+                "width": 100
+            },
+            {
+                "cnname": "是否为分区表",
+                "column_order": 19,
+                "ellipsis": true,
+                "name": "is_partition_table",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": [
+                        
+                    ],
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": true,
+                    "select": [
+                        
+                    ],
+                    "sorter": true,
+                    "split": false,
+                    "totag": {
+                        "否": "#b45ca0",
+                        "是": "#63a646"
+                    }
+                },
+                "part_order": 1,
+                "type": "select",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            },
+            {
+                "cnname": "BI编辑人",
+                "column_order": 20,
+                "ellipsis": true,
+                "name": "bi_editor",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [
+                        
+                    ],
+                    "click_event_api": "",
+                    "click_para": [
+                        
+                    ],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "required": false,
+                    "sorter": false,
+                    "split": false
+                },
+                "part_order": 1,
+                "type": "text",
+                "value": "",
+                "value_type": "text",
+                "width": 100
+            }
+        ],
+        "total": 6786
+    },
+    "info": "数据获取成功",
+    "status": true
+  }

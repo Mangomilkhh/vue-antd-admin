@@ -1,0 +1,3818 @@
+{
+    "code": 200,
+    "data": {
+        "Ad Hoc": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "数据范围",
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_range",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据范围",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CB",
+                        "Local"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据站点",
+                "name": "data_region",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_region",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据站点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "MY",
+                        "ID",
+                        "PH",
+                        "TW",
+                        "TH",
+                        "BR",
+                        "CO",
+                        "SG",
+                        "VN",
+                        "ES",
+                        "PL",
+                        "CL",
+                        "MX",
+                        "ALL"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据维度",
+                "name": "data_dimension",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据维度",
+                    "label_tip": "请选择所需数据的统计维度，如shop维度,category维度",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Category",
+                        "Shop",
+                        "Item",
+                        "Model"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据时间范围",
+                "name": "data_time_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选数据时间范围",
+                    "label_tip": "请选择所需数据的时间(日期)范围",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date_range",
+                "value": null
+            },
+            {
+                "cnname": "数据字段",
+                "name": "data_output_sample",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "请选择最终需要输出的数据字段，多个字段请以逗号隔开",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "BI Tech Support": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "业务痛点",
+                "name": "pian_point",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写业务痛点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "使用频率",
+                "name": "usage_frequency",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请选择该工具的预计使用频率",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "每天",
+                        "每周",
+                        "每月",
+                        "每季度"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "用户数量",
+                "name": "usage_number",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请注入该工具的预计用户数量",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "number",
+                "value": null
+            },
+            {
+                "cnname": "业务逻辑",
+                "name": "business_logic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请描述该工具的业务逻辑",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "Dashboard": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "数据范围",
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_range",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据范围",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CB",
+                        "Local"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据站点",
+                "name": "data_region",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_region",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据站点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "MY",
+                        "ID",
+                        "PH",
+                        "TW",
+                        "TH",
+                        "BR",
+                        "CO",
+                        "SG",
+                        "VN",
+                        "ES",
+                        "PL",
+                        "CL",
+                        "MX",
+                        "ALL"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据维度",
+                "name": "data_dimension",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据维度",
+                    "label_tip": "请选择所需数据的统计维度，如shop维度,category维度",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Category",
+                        "Shop",
+                        "Item",
+                        "Model"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据时间范围",
+                "name": "data_time_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选数据时间范围",
+                    "label_tip": "请选择所需数据的时间(日期)范围",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date_range",
+                "value": null
+            },
+            {
+                "cnname": "数据字段",
+                "name": "data_output_sample",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "请选择最终需要输出的数据字段，多个字段请以逗号隔开",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "筛选字段",
+                "name": "data_filter_column",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写筛选字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "如需添加筛选器，请填写需用于筛选的字段",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "Dashboard形式",
+                "name": "tool_format",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写Dashboard形式",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Data Dashboard",
+                        "Redash Dashboard"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "Dashboard使用人",
+                "name": "tool_user_list",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选Dashboard使用者",
+                    "label_tip": "请选择向谁开放该Dashboard的权限",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": []
+            },
+            {
+                "cnname": "数据过期时间",
+                "name": "data_expiration_date",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据过期时间",
+                    "label_tip": "相应的Tracker/Dashboard的数据将会在此日期后停止更新",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": "None"
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "Data Access": [
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "权限名称",
+                "name": "access_name",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选待申请的权限类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "access_type",
+                        "access_range"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "AE Seller Contact Info": [
+                            "access_range"
+                        ],
+                        "CNCB PnL Dashboard": [
+                            "access_range"
+                        ],
+                        "CNCB PnL Dashboard - Special case": [
+                            "access_range"
+                        ],
+                        "Competitor Dashboard (AE)": [
+                            "access_range"
+                        ],
+                        "Dataflow Editor": [
+                            "access_range"
+                        ],
+                        "Dataflow Viewer": [
+                            "access_range"
+                        ],
+                        "Polaris For SMT": [
+                            "access_range"
+                        ]
+                    },
+                    "select": [
+                        "Dataflow Viewer",
+                        "Dataflow Editor",
+                        "Competitor Dashboard (AE)",
+                        "AE Seller Contact Info",
+                        "Polaris For SMT",
+                        "Redash For SMT",
+                        "Redash For SLS Team",
+                        "Redash For OPS Team",
+                        "Redash For Other Team",
+                        "CNCB PnL Dashboard",
+                        "CNCB PnL Dashboard - Special case"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "权限类型",
+                "name": "access_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_access_type",
+                    "click_para": [
+                        "access_name"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选待申请的权限组",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "access_range"
+                    ],
+                    "required": true,
+                    "select": []
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "权限范围",
+                "name": "access_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_access_range",
+                    "click_para": [
+                        "access_name",
+                        "access_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": []
+            },
+            {
+                "cnname": "申请目的",
+                "name": "justification",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写申请该权限的目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "External Data": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "数据平台",
+                "name": "data_platform",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据平台",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "AliExpress",
+                        "Amazon",
+                        "Allegro",
+                        "Americanas",
+                        "Lazada",
+                        "Linio",
+                        "Mercado Libre",
+                        "拼多多",
+                        "Shein",
+                        "Rakuten",
+                        "Qoo10",
+                        "Vinted",
+                        "Zalando"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据站点",
+                "name": "data_region",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_region",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据站点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "MY",
+                        "ID",
+                        "PH",
+                        "TW",
+                        "TH",
+                        "BR",
+                        "CO",
+                        "SG",
+                        "VN",
+                        "ES",
+                        "PL",
+                        "CL",
+                        "MX",
+                        "ALL"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据维度",
+                "name": "data_dimension",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据维度",
+                    "label_tip": "请选择所需数据的统计维度，如shop维度,category维度",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Category",
+                        "Shop",
+                        "Item",
+                        "Model"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据范围",
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_range",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据范围",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CB",
+                        "Local"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "Other": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "SMT General Report": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "需修改报表名称",
+                "name": "report_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "input",
+                "value": null
+            },
+            {
+                "cnname": "需修改报表链接",
+                "name": "report_link",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "input",
+                "value": null
+            },
+            {
+                "cnname": "需修改报表模块",
+                "name": "report_tab",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "input",
+                "value": null
+            },
+            {
+                "cnname": "需修改报表组别",
+                "name": "report_team_group",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CM",
+                        "RM",
+                        "MD"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "数据范围",
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_range",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据范围",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CB",
+                        "Local"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据站点",
+                "name": "data_region",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_region",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据站点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "MY",
+                        "ID",
+                        "PH",
+                        "TW",
+                        "TH",
+                        "BR",
+                        "CO",
+                        "SG",
+                        "VN",
+                        "ES",
+                        "PL",
+                        "CL",
+                        "MX",
+                        "ALL"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据维度",
+                "name": "data_dimension",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据维度",
+                    "label_tip": "请选择所需数据的统计维度，如shop维度,category维度",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Category",
+                        "Shop",
+                        "Item",
+                        "Model"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据时间范围",
+                "name": "data_time_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选数据时间范围",
+                    "label_tip": "请选择所需数据的时间(日期)范围",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date_range",
+                "value": null
+            },
+            {
+                "cnname": "数据字段",
+                "name": "data_output_sample",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "请选择最终需要输出的数据字段，多个字段请以逗号隔开",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "筛选字段",
+                "name": "data_filter_column",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写筛选字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "如需添加筛选器，请填写需用于筛选的字段",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "Tracker形式",
+                "name": "tracker_format",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写Tracker形式",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Gsheet",
+                        "Email",
+                        "Dashboard"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "Email收件人",
+                "name": "tracker_recipient_list",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写Email收件人",
+                    "label_tip": "如Tracker形式为Email，请填写收件人",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": []
+            },
+            {
+                "cnname": "数据过期时间",
+                "name": "data_expiration_date",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据过期时间",
+                    "label_tip": "相应的Tracker/Dashboard的数据将会在此日期后停止更新",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": "None"
+            },
+            {
+                "cnname": "共同发起团队",
+                "name": "co_create_team",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "其他同需求的team；可以之后变更需求时修改此项",
+                    "orignal_required": false,
+                    "placeholder": "",
+                    "required": false
+                },
+                "type": "input",
+                "value": null
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "公开",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "Tracker": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "数据范围",
+                "name": "data_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_range",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据范围",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "CB",
+                        "Local"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据站点",
+                "name": "data_region",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_data_region",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填选数据站点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "MY",
+                        "ID",
+                        "PH",
+                        "TW",
+                        "TH",
+                        "BR",
+                        "CO",
+                        "SG",
+                        "VN",
+                        "ES",
+                        "PL",
+                        "CL",
+                        "MX",
+                        "ALL"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据维度",
+                "name": "data_dimension",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写数据维度",
+                    "label_tip": "请选择所需数据的统计维度，如shop维度,category维度",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Category",
+                        "Shop",
+                        "Item",
+                        "Model"
+                    ]
+                },
+                "type": "input_select",
+                "value": []
+            },
+            {
+                "cnname": "数据时间范围",
+                "name": "data_time_range",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选数据时间范围",
+                    "label_tip": "请选择所需数据的时间(日期)范围",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date_range",
+                "value": null
+            },
+            {
+                "cnname": "数据字段",
+                "name": "data_output_sample",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "请选择最终需要输出的数据字段，多个字段请以逗号隔开",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "筛选字段",
+                "name": "data_filter_column",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写筛选字段",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "如需添加筛选器，请填写需用于筛选的字段",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "Tracker形式",
+                "name": "tracker_format",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写Tracker形式",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Gsheet",
+                        "Email",
+                        "Dashboard"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "Email收件人",
+                "name": "tracker_recipient_list",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写Email收件人",
+                    "label_tip": "如Tracker形式为Email，请填写收件人",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": []
+            },
+            {
+                "cnname": "数据过期时间",
+                "name": "data_expiration_date",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写数据过期时间",
+                    "label_tip": "相应的Tracker/Dashboard的数据将会在此日期后停止更新",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": "None"
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ],
+        "Web Tool": [
+            {
+                "cnname": "父级编号",
+                "name": "parent_id",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": true,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "text",
+                "value": "202307-00004"
+            },
+            {
+                "cnname": "需求类型",
+                "name": "request_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "Ad-hoc",
+                    "disabled": false,
+                    "empty_tip": "请选择需求类型",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "Ad Hoc",
+                        "Tracker",
+                        "Dashboard",
+                        "External Data",
+                        "Data Access",
+                        "SMT General Report",
+                        "Web Tool",
+                        "BI Tech Support",
+                        "Other"
+                    ]
+                },
+                "type": "select",
+                "value": "Other"
+            },
+            {
+                "cnname": "需求标题",
+                "name": "request_title",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求标题",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHAT]用一句话概括需要什么数据",
+                    "required": true
+                },
+                "type": "input",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求背景",
+                "name": "request_background",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写需求背景",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "[WHY]描述为什么需要此数据",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": "dev test"
+            },
+            {
+                "cnname": "需求目的",
+                "name": "request_objective",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请填写需求目的",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "运营决策",
+                        "会议汇报",
+                        "项目数据支持",
+                        "其它"
+                    ]
+                },
+                "type": "input_select",
+                "value": [
+                    "dev test"
+                ]
+            },
+            {
+                "cnname": "业务痛点",
+                "name": "pian_point",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写业务痛点",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "使用频率",
+                "name": "usage_frequency",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请选择该工具的预计使用频率",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "每天",
+                        "每周",
+                        "每月",
+                        "每季度"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "用户数量",
+                "name": "usage_number",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请注入该工具的预计用户数量",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "number",
+                "value": null
+            },
+            {
+                "cnname": "工具形态",
+                "name": "tool_type",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请选择该工具的呈现形态",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "网页工具",
+                        "桌面程序",
+                        "脚本",
+                        "其它"
+                    ]
+                },
+                "type": "select",
+                "value": null
+            },
+            {
+                "cnname": "永久使用",
+                "name": "permanent_access",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": true,
+                    "disabled": false,
+                    "empty_tip": "请选择是否永久使用",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "boolean",
+                "value": false
+            },
+            {
+                "cnname": "业务逻辑",
+                "name": "business_logic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请描述该工具的业务逻辑",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "placeholder": "",
+                    "required": true
+                },
+                "type": "textarea",
+                "value": null
+            },
+            {
+                "cnname": "详细描述",
+                "name": "request_description",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "请对需求做出补充描述",
+                    "required": false
+                },
+                "type": "tinymce",
+                "value": ""
+            },
+            {
+                "cnname": "需求附件",
+                "name": "request_attachment",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "如有附件，可上传附件",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "upload",
+                "value": ""
+            },
+            {
+                "cnname": "敏感需求",
+                "name": "sensitive_request",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": false,
+                    "disabled": false,
+                    "empty_tip": "请选择是否是敏感需求",
+                    "label_tip": "该需求中是否包含敏感数据，如地址、联系方式等信息",
+                    "orignal_required": false,
+                    "required": false
+                },
+                "type": "boolean",
+                "value": true
+            },
+            {
+                "cnname": "需求密级",
+                "name": "secret_level",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "该需求的保密等级",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": [
+                        "普通",
+                        "保密",
+                        "公开"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "优先级",
+                "name": "priority",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_priority",
+                    "click_para": [],
+                    "default": "普通",
+                    "disabled": false,
+                    "empty_tip": "请选择需求优先级",
+                    "label_tip": "",
+                    "orignal_required": true,
+                    "relate_fields": [
+                        "expected_ddl"
+                    ],
+                    "required": true,
+                    "required_fields": {
+                        "紧急": [
+                            "urgent_reason"
+                        ]
+                    },
+                    "select": [
+                        "普通",
+                        "较低",
+                        "紧急"
+                    ]
+                },
+                "type": "select",
+                "value": "普通"
+            },
+            {
+                "cnname": "紧急原因",
+                "name": "urgent_reason",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "",
+                    "click_para": [],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填写紧急原因，便于BI协调人力支持",
+                    "label_tip": "",
+                    "orignal_required": false,
+                    "placeholder": "1）请说明无法提前计划并提出此需求的原因。（请注意此处不是写为什么需要提这个需求）\n2）请说明今后会采取什么举措避免此类紧急需求。",
+                    "required": false
+                },
+                "type": "textarea",
+                "value": ""
+            },
+            {
+                "cnname": "需求PIC",
+                "name": "request_pic",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_pic_list",
+                    "click_para": [
+                        "request_type"
+                    ],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "请选择需求PIC",
+                    "label_tip": "请选择谁来处理您的需求",
+                    "orignal_required": true,
+                    "required": true,
+                    "select": []
+                },
+                "type": "multiple_select",
+                "value": [
+                    "shaoming.zhong@shopee.com"
+                ]
+            },
+            {
+                "cnname": "需求抄送",
+                "name": "watcher",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/search_user",
+                    "click_para": [],
+                    "default": [],
+                    "disabled": false,
+                    "empty_tip": "",
+                    "label_tip": "请选择谁能查看此需求",
+                    "orignal_required": false,
+                    "required": false,
+                    "select": []
+                },
+                "type": "user_search",
+                "value": ""
+            },
+            {
+                "cnname": "期望完成时间",
+                "name": "expected_ddl",
+                "options": {
+                    "change_event_api": "",
+                    "change_para": [],
+                    "click_event_api": "request_system/get_dll_scope",
+                    "click_para": [
+                        "request_type",
+                        "priority"
+                    ],
+                    "default": "",
+                    "disabled": false,
+                    "empty_tip": "请填选期望完成时间",
+                    "label_tip": "此时间仅供评估参考，实际完成时间以需求PIC评估为准",
+                    "orignal_required": true,
+                    "required": true
+                },
+                "type": "date",
+                "value": ""
+            }
+        ]
+    },
+    "info": "lydia.li@shopee.com 获取 创建子需求 页面字段成功",
+    "status": true
+  }

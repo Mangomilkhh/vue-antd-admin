@@ -7,29 +7,26 @@
       </div>
       <a-button v-else @click="editInput = true">批量编辑</a-button>
 
-      <a-table :columns="columns" :data-source="data" bordered>
-        <div
-          v-for="col in ['name', 'age', 'address']"
-          :slot="col"
+      <a-table :columns="columns" :data-source="data" rowKey="name" bordered>
+        <!--   ['name', 'age', 'address'] -->
+        <span
+          v-for="(col, index) in columns"
+          :slot="col.dataIndex"
           slot-scope="text, record"
-          :key="col"
+          :key="index"
         >
-          <div>
-            <a-input
+          <a-input
             :key="record.key"
-              id="myInput"
-              v-if="editInput"
-              :value="text"
-              @change="
-                (e) => handleChange(text, e.target.value, record.key, col)
-              "
-              :style="changeStyle ? 'color: #ee4d2d' : 'color: #000000a6'"
-            />
-            <template v-else>
-              {{ text }}
-            </template>
-          </div>
-        </div>
+            id="myInput"
+            v-if="editInput"
+            :value="text"
+            @change="(e) => handleChange(text, e.target.value, record.key, col)"
+            :style="changeStyle ? 'color: #ee4d2d' : 'color: #000000a6'"
+          />
+          <template v-else>
+            {{ text }}
+          </template>
+        </span>
 
         <template slot="operation" slot-scope="text, record">
           <a-popconfirm
@@ -47,26 +44,35 @@
 import PageLayout from "../../layouts/PageLayout";
 const columns = [
   {
-    title: "name",
-    dataIndex: "name",
+    cnname: "名字",
+    name: "request_title",
     width: "25%",
-    scopedSlots: { customRender: "name" },
+    scopedSlots: { customRender: "request_title" },
+    customCell: () => {
+      //改变样式
+      return {
+        style: {
+          // color: "red",
+          textAlign: "center",
+        },
+      };
+    },
   },
   {
-    title: "age",
-    dataIndex: "age",
+    cnname: "年龄",
+    name: "age",
     width: "25%",
     scopedSlots: { customRender: "age" },
   },
   {
-    title: "address",
-    dataIndex: "address",
+    cnname: "地址",
+    name: "address",
     width: "40%",
     scopedSlots: { customRender: "address" },
   },
   {
-    title: "operation",
-    dataIndex: "operation",
+    cnname: "操作",
+    name: "operation",
     scopedSlots: { customRender: "operation" },
   },
 ];
@@ -86,13 +92,25 @@ export default {
   },
   created() {
     this.initData();
+    this.changeColumns();
   },
   methods: {
+    changeColumns() {
+      let keyMap = { cnname: "title", name: "dataIndex" };
+      this.columns = columns.map((item) => {
+        var objs = Object.keys(item).reduce((newData, key) => {
+          let newKey = keyMap[key] || key;
+          newData[newKey] = item[key];
+          return newData;
+        }, {});
+        return objs;
+      });
+    },
     initData() {
       for (let i = 0; i < 100; i++) {
         this.data.push({
-          key: i.toString(),
-          name: `Edrward ${i}`,
+          // key: i.toString(),
+          request_title: `Edrward ${i}`,
           age: "",
           address: `London Park no. ${i}`,
         });
@@ -101,11 +119,9 @@ export default {
       this.cacheData = JSON.parse(JSON.stringify(this.data));
     },
     handleChange(text, value, key, column) {
-      this.changeStyle=true,
-      
-
-      //值  行  列
-      console.log("单元格更改", value, key, column);
+      (this.changeStyle = true),
+        //值  行  列
+        console.log("单元格更改", value, key, column);
       const newData = this.data;
       const target = newData.filter((item) => key === item.key)[0];
       if (target) {

@@ -1,0 +1,76 @@
+// WIKI表头规范
+[
+    {
+        "cnname": "label_name",
+        "name": "column_name",
+        "width": 55, //列宽度 number类型 例子：优先级（55）、承接状态（65）、期望完成时间（100）、需求负责人（120）
+        "ellipsis": true, //列表内容过多时显示省略号  true、false
+        "type": "表单控件类型", //column_compoment
+        "options": {
+            // 可选的字段
+            "click_event_api": "request_system/get_dll_scope", // 当前控件有popup时生效，将click_para的值请求api后更新select。目的是根据其他控件值更新本控件的可选项
+            "change_event_api": "request_system/get_free_member", // 本控件change后，将change_para的值请求api后更新其他控件值。
+            "click_para": [], // click_event_api需要传递的参数
+            "change_para": [], // change_event_api需要传递的参数
+            "default": "默认值", //控件的默认值
+            "empty_tip": "", //input的placeholder
+            "label_tip": "", // 悬停form-item的tip
+            "select": [], //下拉框可选项
+            "require": true, //是否必填
+            "fixed": "right", //列固定的话 在左还是右 'left'、'right'
+            "actionColumn": {
+                //操作列的按钮和api
+                "查看": "request_system/get_dll_scope",
+                "编辑": "request_system/get_dll_scope"
+            },
+            "sorter": true, //内容需要排序处理时
+            "disable": true,
+            "classStyle": {
+                //表格内容的样式
+                "align": "center", //表格内容居中/居左
+                "color": "",
+                "fontSize": "9px"
+            },
+            "totag": {
+                //表格内容为tag 给不同tag分配颜色
+                "普通": "#63a646",
+                "紧急": "#b45ca0"
+            },
+            "split": "\n" //表格内容需要换行
+        }
+    },
+    // columns 为接口传递的控件表
+    {
+        "cnname": "lable名称",
+        "name": "expected_ddl",
+        "options": {
+            "click_event_api": "request_system/get_dll_scope", // 当前控件有popup时生效，将click_para的值请求api后更新select。目的是根据其他控件值更新本控件的可选项
+            "change_event_api": "request_system/get_free_member", // 本控件change后，将change_para的值请求api后更新其他控件值。
+            "default": "默认值", // 控件的默认值
+            "disabled": false, // 该控件是否可用
+            "empty_tip": "", // input的placeholder
+            "label_tip": "", // 悬停form-item的tip
+            "select": [], // 下拉框可选项
+            "click_para": [], // click_event_api需要传递的参数
+            "change_para": [], // change_event_api需要传递的参数
+            "required": true, // 是否必填项
+            "required_fields": {
+                // 根据表单值匹配，如果有的话更新对应字段为必填项
+                "紧急": [
+                    "urgent_reason"
+                ]
+            },
+            "relate_fields": [] // 相关字段，当本控件值change后，将对应的字段值清空。目的是1个字段可以影响多个字段的可选范围，清空的字段一般带有click_event_api
+        },
+        "type": "表单控件类型",
+        "value": "表单值（优先级更高）"
+    }
+]
+// select 单选下拉框组件
+// multiple_select 多选下拉框组件
+// input_select 可输入单选下拉框组件 【该组件原来实际为可输入多选下拉框，需要新增】
+// input_multiple_select 可输入多选下拉框组件 【基于原来的input_select改名】
+// input 文本输入框组件
+// search_input 搜索文本输入框组件 【需新增】
+// search_multiple_input 搜索文本输入框组件,支持多选【需新增】
+// user_search 用户搜索组件

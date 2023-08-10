@@ -8,31 +8,29 @@
         @change="handleChange"
         :style="changeStyle ? 'color: #ee4d2d' : 'color: #000000a6'"
       />
-      <!-- :value="slotInfo.text"-->
-      <!-- tags为多选可输入 -->
+
+      <!-- 多选 -->
+      <!--  :default-value="value" -->
       <a-select
         style="width: 100%"
         mode="tags"
         v-if="col.type == 'multiple_select'"
         :value="value"
-        :default-value="slotInfo.text"
         @change="selectChange"
         :style="changeStyle ? 'color: #ee4d2d' : 'color: #000000a6'"
       >
-        <a-select-option v-for="item in col.options.select" :key="item">
+      <a-select-option v-for="item in col.options.select" :key="item">
           {{ item }}
         </a-select-option>
       </a-select>
 
-      <!-- 单选-->
+      <!-- 单选 -->
       <a-select
         style="width: 100%"
         v-if="col.type == 'select'"
         :value="value"
-        :default-value="slotInfo.text"
         @focus="focusChange"
         @change="selectChange"
-        :style="changeStyle ? 'color: #ee4d2d' : 'color: #000000a6'"
       >
         <a-select-option v-for="item in col.options.select" :key="item">
           {{ item }}
@@ -79,22 +77,17 @@ export default {
         this.changeStyle = false;
       }
 
-      // console.log('444',col,e);
-    },
-    focusChange(value) {
-      // this.value=this.slotInfo.text;
-      this.$emit("focus", value);
+      this.$emit("change", e.target.value);
     },
     selectChange(value) {
-      // col为哪一列的表头数据
-      // this.value = value ? value : this.value;
       this.value = value;
-      console.log('000',value);
-      this.$emit("change", value);
+      // 选项改变时把改变的项传入
+      this.$emit("change", this.value);
     },
-    selectOptionChange(value) {
-      this.$emit("optionChange", value);
-    },
+    focusChange(){
+      // 聚焦时把当前值传入
+      this.$emit("change", this.value);
+    }
   },
 };
 </script>
