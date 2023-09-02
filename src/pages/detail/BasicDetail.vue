@@ -1,6 +1,19 @@
 <template>
   <page-layout title="基础详情页">
-    <a-card title="实例" class="demo">
+    <a-card>
+      <span>{{ str }}</span
+      ><br /><br />
+      <pre>{{ sqlFormatter.format(str) }}</pre>
+      <textarea
+        ref="sqlEditor"
+        v-model="sql"
+        class="codesql"
+        style="width: 100%"
+      ></textarea>
+      <!-- <code>{{ sqlFormatter.format(str) }}</code> -->
+    </a-card>
+
+    <a-card title="实--例" class="demo">
       <h2>文本超长溢出头部打点的情况:</h2>
 
       <div class="first">
@@ -77,6 +90,11 @@
 import DetailList from "../../components/tool/DetailList";
 import PageLayout from "../../layouts/PageLayout";
 import * as echarts from "echarts";
+import sqlFormatter from "sql-formatter";
+
+let str =
+  "with return as ( select distinct order_id,from_unixtime(return_created_timestamp) return_created_time,from_unixtime(return_accepted_timestamp) return_accepted_time,return_reason from( select distinct a.order_id,return_created_timestamp,return_accepted_timestamp,return_reason  ,ROW_NUMBER()over(PARTITION by a.order_id order by return_created_timestamp desc) rn from mp_order.dwd_return_item_all_ent_df__reg_s0_live a where  a.is_cb_shop=1 and date(from_unixtime(return_created_timestamp))>=date('2022-01-01')) where rn=1 )";
+let sql = sqlFormatter.format(str);
 
 const DetailListItem = DetailList.Item;
 
@@ -227,6 +245,9 @@ export default {
   components: { PageLayout, DetailListItem, DetailList },
   data() {
     return {
+      sqlFormatter,
+      str,
+      sql,
       goodsColumns,
       goodsData,
       scheduleColumns,

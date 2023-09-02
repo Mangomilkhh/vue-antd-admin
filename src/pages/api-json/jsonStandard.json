@@ -13,7 +13,8 @@
             "click_para": [], // click_event_api需要传递的参数
             "change_para": [], // change_event_api需要传递的参数
             "default": "默认值", //控件的默认值
-            "empty_tip": "", //input的placeholder
+            "empty_tip": "",    //红色提醒  请填写需求目的
+            "placeholder":"",  //内容描述
             "label_tip": "", // 悬停form-item的tip
             "select": [], //下拉框可选项
             "require": true, //是否必填
@@ -36,7 +37,7 @@
                 "普通": "#63a646",
                 "紧急": "#b45ca0"
             },
-            "split": "\n" //表格内容需要换行
+            "split": true //表格内容需要换行
         }
     },
     // columns 为接口传递的控件表
@@ -48,7 +49,7 @@
             "change_event_api": "request_system/get_free_member", // 本控件change后，将change_para的值请求api后更新其他控件值。
             "default": "默认值", // 控件的默认值
             "disabled": false, // 该控件是否可用
-            "empty_tip": "", // input的placeholder
+            "empty_tip": "", // input的placeholder 
             "label_tip": "", // 悬停form-item的tip
             "select": [], // 下拉框可选项
             "click_para": [], // click_event_api需要传递的参数
