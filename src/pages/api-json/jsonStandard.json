@@ -18,6 +18,12 @@
             "label_tip": "", // 悬停form-item的tip
             "select": [], //下拉框可选项
             "require": true, //是否必填
+            "required_fields": {
+              // 与需求系统的不同，只要选中的值为key时，value里的数据字段的必填取反
+              "紧急": [
+                  "urgent_reason"
+              ]
+          },
             "fixed": "right", //列固定的话 在左还是右 'left'、'right'
             "actionColumn": {
                 //操作列的按钮和api
@@ -40,6 +46,9 @@
             "split": true //表格内容需要换行
         }
     },
+
+
+
     // columns 为接口传递的控件表
     {
         "cnname": "lable名称",

@@ -1,16 +1,52 @@
 <template>
   <page-layout title="基础详情页">
-    <a-card>
-      <span>{{ str }}</span
+    <a-card style="margin-bottom: 20px">
+      <!-- <span>{{ str }}</span
       ><br /><br />
-      <pre>{{ sqlFormatter.format(str) }}</pre>
-      <textarea
-        ref="sqlEditor"
+     
+      <a-textarea
         v-model="sql"
-        class="codesql"
         style="width: 100%"
-      ></textarea>
-      <!-- <code>{{ sqlFormatter.format(str) }}</code> -->
+        :auto-size="{ minRows: 3, maxRows: 5 }"
+      ></a-textarea> -->
+      <!-- <code></code> -->
+      查看：
+      <pre>{{ str }}</pre>
+      <br />
+      编辑：<br />
+      <SqlEditor
+        ref="sqleditor"
+        :value="basicInfoForm.sqlMain"
+        @changeTextarea="changeTextarea($event)"
+      />
+      <a-button
+        size="small"
+        class="sql-btn"
+        @click="formaterSql(basicInfoForm.sqlMain)"
+        >格式化sql
+      </a-button>
+      <br /><br /><br />
+
+      <a-form-model-item label="代码编辑器">
+        <div class="codeEditBox">
+          <!-- @input="codeChange" -->
+          <code-editor
+            ref="editor"
+            @init="editorInit"
+            v-model="code"
+            lang="sql"
+            :options="editorOptions"
+            theme="textmate"
+          ></code-editor>
+        </div>
+      </a-form-model-item>
+      <a-button
+        type="primary"
+        size="small"
+        class="sql-btn"
+        @click="formaterEditor()"
+        >格式化sql
+      </a-button>
     </a-card>
 
     <a-card title="实--例" class="demo">
@@ -87,10 +123,12 @@
 </template>
 
 <script>
+import sqlFormatter from "sql-formatter";
+import SqlEditor from "./SqlEditor";
+import CodeEditor from "vue2-ace-editor";
 import DetailList from "../../components/tool/DetailList";
 import PageLayout from "../../layouts/PageLayout";
 import * as echarts from "echarts";
-import sqlFormatter from "sql-formatter";
 
 let str =
   "with return as ( select distinct order_id,from_unixtime(return_created_timestamp) return_created_time,from_unixtime(return_accepted_timestamp) return_accepted_time,return_reason from( select distinct a.order_id,return_created_timestamp,return_accepted_timestamp,return_reason  ,ROW_NUMBER()over(PARTITION by a.order_id order by return_created_timestamp desc) rn from mp_order.dwd_return_item_all_ent_df__reg_s0_live a where  a.is_cb_shop=1 and date(from_unixtime(return_created_timestamp))>=date('2022-01-01')) where rn=1 )";
@@ -242,7 +280,7 @@ const scheduleData = [
 
 export default {
   name: "BasicDetail",
-  components: { PageLayout, DetailListItem, DetailList },
+  components: { PageLayout, DetailListItem, DetailList, SqlEditor, CodeEditor },
   data() {
     return {
       sqlFormatter,
@@ -252,6 +290,29 @@ export default {
       goodsData,
       scheduleColumns,
       scheduleData,
+      basicInfoForm: {
+        sqlMain: "",
+      },
+      code: "",
+      editorOptions: {
+        // 设置代码编辑器的样式
+        enableLiveAutocompletion: true, // 启用实时自动完成
+        enableBasicAutocompletion: true, // 启用基本自动完成
+        behavioursEnabled: true,
+        autoScrollEditorIntoView: true,
+        enableSnippets: true, // 启用代码段
+        tabSize: 4, // 标签大小
+        fontSize: 12, // 设置字号
+        showPrintMargin: false, // 去除编辑器里的竖线
+        showLineNumbers: true, // 显示行号
+        wrap: true,
+        scrollPastEnd: true, // 滚动位置
+        highlightActiveLine: true, // 高亮当前行
+        highlightSelectedWord: false, //高亮选中文本
+        // maxLines: 18, // 最大行数，超过会自动出现滚动条
+        readOnly: false,
+        // minLines:5,// 最小行数，还未到最大行数时，编辑器会自动伸缩大小
+      },
     };
   },
   mounted() {
@@ -334,6 +395,49 @@ export default {
       }
       return false;
     },
+    changeTextarea(val) {
+      this.$set(this.basicInfoForm, "sqlMain", val);
+    },
+    formaterSql() {
+      let dom = this.$refs.sqleditor;
+      dom.editor.setValue(
+        sqlFormatter.format(dom.editor.getValue(), {
+          language: "sql",
+          tabWidth: 2,
+          keywordCase: "preserve",
+          linesBetweenQueries: 2,
+        })
+      );
+    },
+    // codeChange(val) {
+    //   console.log("222", val);
+    // },
+    formaterEditor() {
+      this.code = sqlFormatter.format(this.code, {
+        language: "sql",
+        tabWidth: 2,
+        keywordCase: "preserve",
+        linesBetweenQueries: 2,
+      });
+    },
+    editorInit() {
+      require("brace/theme/textmate"); //主题
+      require("brace/ext/language_tools"); //启用提示菜单
+      require("brace/ext/searchbox"); //启用提示菜单
+      require("brace/mode/yaml"); //语言模式
+      require("brace/mode/json");
+      require("brace/mode/less");
+      require("brace/mode/lua");
+      require("brace/mode/javascript");
+      require("brace/mode/sql");
+      require("brace/mode/mysql");
+      require("brace/snippets/sql");
+      require("brace/snippets/json");
+      require("brace/snippets/python");
+      require("brace/snippets/yaml");
+      require("brace/snippets/lua");
+      require("brace/snippets/javascript");
+    },
   },
 };
 </script>
@@ -388,5 +492,11 @@ export default {
     white-space: nowrap;
     direction: rtl;
   }
+}
+
+.codeEditBox {
+  width: 100%;
+  height: 290px;
+  border: 1px solid #dcdee2;
 }
 </style>
