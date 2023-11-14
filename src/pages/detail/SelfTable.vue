@@ -14,6 +14,10 @@
           :data-source="dataSource"
           :columns="columns"
           :key="componentKey"
+          :pagination="{
+            pageSize: 100,
+            total: total,
+          }"
         >
           <div
             v-for="(col, index) in columns"
@@ -127,27 +131,13 @@ export default {
       componentKey: 0,
       showComponent: true,
       editable: false,
-      dataSource: [
-        {
-          key: "0",
-          name: "zero",
-          age: "3",
-          address: "999",
-        },
-        {
-          key: "1",
-          name: "one",
-          age: "32",
-          address: "Londonone",
-        },
-      ],
+      dataSource: [],
       dataSource2: [],
       count: 2,
       columns: [
         {
           title: "name",
           dataIndex: "name",
-          width: "30%",
           align: "center",
           type: "input",
           scopedSlots: { customRender: "input" },
@@ -157,6 +147,17 @@ export default {
           dataIndex: "age",
           type: "multiple_select",
           scopedSlots: { customRender: "multiple_select" },
+          options: {
+            change_event_api: "get_data/api",
+            select: ["a", "b", "c"],
+          },
+        },
+        {
+          title: "code",
+          dataIndex: "code",
+          width: "50",
+          type: "code_editor",
+          scopedSlots: { customRender: "code_editor" },
           options: {
             change_event_api: "get_data/api",
             select: ["a", "b", "c"],
@@ -188,6 +189,16 @@ export default {
   mounted() {
     // 拷贝一份新值
     this.oldcolumns = JSON.parse(JSON.stringify(this.columns));
+
+    for (let i = 1; i <= 300; i++) {
+      this.dataSource.push({
+        key: i,
+        name: i + "one",
+        age: "32",
+        address: "Londonone",
+        code: "code",
+      });
+    }
   },
   methods: {
     //用async定义一个异步函数
@@ -248,7 +259,7 @@ export default {
     },
 
     onCellChange(record, col, value) {
-      console.log('999',record, col, value);
+      console.log("999", record, col, value);
 
       var newName = "address";
       var previousName = "age";
@@ -258,7 +269,7 @@ export default {
       if (col.options.change_event_api) {
         //调用api得到 表头名字 newName 数组内容array
         //给组件的key增加的方式刷新,视图才可以显示最新值
-        this.componentKey += 1;  
+        this.componentKey += 1;
         changeValue[newName] = "";
       }
 
