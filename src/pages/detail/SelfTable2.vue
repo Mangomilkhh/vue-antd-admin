@@ -202,6 +202,10 @@ export default {
       }
     },
     changeEdit(record) {
+      this.data.map((item) => {
+        return (item.change_status = true);
+      });
+
       record.change_status = !record.change_status;
     },
     save() {
