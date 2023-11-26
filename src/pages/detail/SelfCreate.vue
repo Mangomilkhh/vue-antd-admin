@@ -142,6 +142,12 @@
       <p>isComposing、keyCode属性</p>
     </a-card>
 
+    <a-card>
+      <p>
+        a对象数组中根据唯一标识，b对象数组循环查找到相同唯一标识的对象，则替换a对象数组中的对象到b对象数组
+      </p>
+    </a-card>
+
     <picker v-show="showEmoji" @select="addEmoji"></picker>
   </page-layout>
 </template>
@@ -174,6 +180,8 @@ export default {
     };
   },
   mounted() {
+    this.replaceObjectsById();
+
     const inputElement = document.querySelector(".textareaInput");
     inputElement.addEventListener("compositionstart", this.handleEvent);
     inputElement.addEventListener("compositionupdate", this.handleEvent);
@@ -218,6 +226,71 @@ export default {
       clearLog.addEventListener("click", () => {
         log.textContent = "";
       });
+    },
+
+    replaceObjectsById() {
+      let newArr = [
+        {
+          cnname: "名字",
+          name: "request_title",
+          width: "25%",
+          scopedSlots: { customRender: "request_title" },
+          type: "input",
+        },
+        {
+          cnname: "年龄",
+          name: "age",
+          width: "25%",
+          scopedSlots: { customRender: "age" },
+          type: "multiple_select",
+          options: {
+            select: ["a", "b", "c", "d", "e"],
+          },
+        },
+        {
+          cnname: "地址",
+          name: "address",
+          width: "40%",
+          scopedSlots: { customRender: "address" },
+          type: "input",
+        },
+        {
+          cnname: "操作",
+          name: "operation",
+          scopedSlots: { customRender: "operation" },
+        },
+      ];
+
+      let localArr = [
+        {
+          cnname: "地址bbb",
+          name: "address",
+          type: "input",
+        },
+        {
+          cnname: "名字bbb",
+          name: "request_title",
+          type: "input",
+        },
+        {
+          cnname: "嘻嘻bbb",
+          name: "xixi",
+          type: "input",
+        },
+      ];
+
+      localArr = localArr.map((item) => {
+        const replacement = newArr.find((i) => i.name === item.name);
+        return replacement ? replacement : item;
+      });
+
+
+      localArr.map((item)=>{
+        const aaa = newArr.find((i) => i.name !== item.name);
+        console.log("444", aaa);
+      })
+
+      // console.log("5555", localArr);
     },
 
     addEmoji(emoji) {
