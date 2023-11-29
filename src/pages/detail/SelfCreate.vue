@@ -143,9 +143,16 @@
     </a-card>
 
     <a-card>
-      <p>
-        a对象数组中根据唯一标识，b对象数组循环查找到相同唯一标识的对象，则替换a对象数组中的对象到b对象数组
-      </p>
+      数组转换：
+      <a @click="replaceObjectsById()">
+        如何在打乱顺序的对象数组a中，按照对象的唯一标识，将
+        b数组新增和改变的对象更新给a数组，
+        并且b数组缺少的对象在a数组删除。(a:local b:new )
+      </a>
+
+      <!-- <a @click="">
+        如何使b对象数组根据唯一标识，按照a对象数组中已有的对象的顺序调整显示。
+      </a> -->
     </a-card>
 
     <picker v-show="showEmoji" @select="addEmoji"></picker>
@@ -180,8 +187,6 @@ export default {
     };
   },
   mounted() {
-    this.replaceObjectsById();
-
     const inputElement = document.querySelector(".textareaInput");
     inputElement.addEventListener("compositionstart", this.handleEvent);
     inputElement.addEventListener("compositionupdate", this.handleEvent);
@@ -248,10 +253,27 @@ export default {
           },
         },
         {
+          cnname: "性别",
+          name: "sex",
+          width: "25%",
+          scopedSlots: { customRender: "sex" },
+          type: "select",
+          options: {
+            select: ["1", "2", "0"],
+          },
+        },
+        {
           cnname: "地址",
           name: "address",
           width: "40%",
           scopedSlots: { customRender: "address" },
+          type: "input",
+        },
+        {
+          cnname: "爱好",
+          name: "hobby",
+          width: "40%",
+          scopedSlots: { customRender: "hobby" },
           type: "input",
         },
         {
@@ -263,34 +285,73 @@ export default {
 
       let localArr = [
         {
-          cnname: "地址bbb",
+          cnname: "公司local",
+          name: "company",
+          type: "input",
+        },
+        {
+          cnname: "地址local",
           name: "address",
           type: "input",
         },
         {
-          cnname: "名字bbb",
+          cnname: "名字local",
           name: "request_title",
           type: "input",
         },
         {
-          cnname: "嘻嘻bbb",
+          cnname: "嘻嘻local",
           name: "xixi",
           type: "input",
         },
+        {
+          cnname: "操作",
+          name: "operation",
+        },
       ];
 
+      // name为唯一标识
+      // local有的  新数组无的 storageList为local即将删除的对象
+      const storageList = localArr.filter((obj1) => {
+        return !newArr.some((obj2) => obj1.name === obj2.name);
+      });
+
+      // 新数组有的 local无的 newList为新增的对象
+      const newList = newArr.filter((obj2) => {
+        return !localArr.some((obj1) => obj1.name === obj2.name);
+      });
+
+      // 在local新增列
+      for (let i = 0; i < newList.length; i++) {
+        if (newList[i].cnname == "操作") continue;
+        // 找到新增对象在新数组newArr中的index
+        let originIndex = newArr.findIndex((item) => item == newList[i]);
+        // 找到新增对象在新数组newArr前一个的index的属性name
+        let originName = newArr[originIndex - 1].name;
+        // 找到local数组对应index属性的游标+1
+        let insertIndex =
+          localArr.findIndex(
+            (item) => item == localArr.find((item) => item.name == originName)
+          ) + 1;
+        localArr.splice(insertIndex, 0, newList[i]);
+      }
+
+      // 在local删除多余列
+      for (let i = 0; i < storageList.length; i++) {
+        const index = localArr.findIndex(
+          (obj) => obj.name === storageList[i].name
+        );
+        localArr.splice(index, 1);
+      }
+
+      // 给local数组的对象换上新的对象
       localArr = localArr.map((item) => {
         const replacement = newArr.find((i) => i.name === item.name);
         return replacement ? replacement : item;
       });
 
-
-      localArr.map((item)=>{
-        const aaa = newArr.find((i) => i.name !== item.name);
-        console.log("444", aaa);
-      })
-
-      // console.log("5555", localArr);
+      // console.log("5555", storageList, newList);
+      console.log("666", localArr);
     },
 
     addEmoji(emoji) {
