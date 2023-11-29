@@ -1,5 +1,5 @@
 <template>
-  <page-layout title="基础详情页">
+  <page-layout title="基础详情页" sa>
     <a-card style="margin-bottom: 20px">
       <!-- <span>{{ str }}</span
       ><br /><br />
@@ -16,13 +16,10 @@
       编辑：<br />
       <SqlEditor
         ref="sqleditor"
-        :value="basicInfoForm.sqlMain"
+        :value="code"
         @changeTextarea="changeTextarea($event)"
       />
-      <a-button
-        size="small"
-        class="sql-btn"
-        @click="formaterSql(basicInfoForm.sqlMain)"
+      <a-button size="small" class="sql-btn" @click="formaterSql(code)"
         >格式化sql
       </a-button>
       <br /><br /><br />
@@ -34,7 +31,7 @@
             ref="editor"
             @init="editorInit"
             v-model="code"
-            lang="sql"
+            lang="sqlserver"
             :options="editorOptions"
             theme="textmate"
           ></code-editor>
@@ -293,7 +290,18 @@ export default {
       basicInfoForm: {
         sqlMain: "",
       },
-      code: "",
+      code: `
+      
+  with wh_pff_pool as (
+  select a.shop_id 
+  ,max_by(warehouse_type,pff_tag) warehouse_type
+    ,max(a.pff_tag) as pff_tag
+  from cncbbi_general.wh_and_pff_shop_list_v4 a 
+  where grass_date = (select max(grass_date) as max_time from cncbbi_general.wh_and_pff_shop_list_v4) 
+  group by 1
+)
+
+      `,
       editorOptions: {
         // 设置代码编辑器的样式
         enableLiveAutocompletion: true, // 启用实时自动完成
@@ -309,9 +317,9 @@ export default {
         scrollPastEnd: true, // 滚动位置
         highlightActiveLine: true, // 高亮当前行
         highlightSelectedWord: false, //高亮选中文本
-        // maxLines: 18, // 最大行数，超过会自动出现滚动条
+        maxLines: 18, // 最大行数，超过会自动出现滚动条
         readOnly: false,
-        // minLines:5,// 最小行数，还未到最大行数时，编辑器会自动伸缩大小
+        minLines: 5, // 最小行数，还未到最大行数时，编辑器会自动伸缩大小
       },
     };
   },
@@ -403,7 +411,8 @@ export default {
       dom.editor.setValue(
         sqlFormatter.format(dom.editor.getValue(), {
           language: "sql",
-          tabWidth: 2,
+          tabWidth: 4,
+          commaPosition: "before",
           keywordCase: "preserve",
           linesBetweenQueries: 2,
         })
@@ -415,7 +424,8 @@ export default {
     formaterEditor() {
       this.code = sqlFormatter.format(this.code, {
         language: "sql",
-        tabWidth: 2,
+        tabWidth: 4,
+        commaPosition: "before",
         keywordCase: "preserve",
         linesBetweenQueries: 2,
       });
@@ -430,7 +440,8 @@ export default {
       require("brace/mode/lua");
       require("brace/mode/javascript");
       require("brace/mode/sql");
-      require("brace/mode/mysql");
+      require("brace/mode/sqlserver");
+      require("brace/snippets/sqlserver");
       require("brace/snippets/sql");
       require("brace/snippets/json");
       require("brace/snippets/python");
@@ -495,8 +506,12 @@ export default {
 }
 
 .codeEditBox {
-  width: 100%;
-  height: 290px;
+  width: 44%;
+  // height: 90px;
   border: 1px solid #dcdee2;
+}
+
+/deep/ .ace_scroller {
+  overflow-x: auto;
 }
 </style>
