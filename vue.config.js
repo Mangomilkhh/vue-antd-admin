@@ -4,11 +4,14 @@ const ThemeColorReplacer = require('webpack-theme-color-replacer')
 const { getThemeColors, modifyVars } = require('./src/utils/themeUtil')
 const { resolveCss } = require('./src/utils/theme-color-replacer-extend')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
-
-// 
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// 
+
+// esm版本集成monaco
+// const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
+// 汉化monaco使用
+const MonacoWebpackPlugin = require('monaco-editor-esm-webpack-plugin');
+// const MonacoLocalesPlugin = require('monaco-editor-nls')
 
 const productionGzipExtensions = ['js', 'css']
 const isProd = process.env.NODE_ENV === 'production'
@@ -60,10 +63,31 @@ module.exports = {
     }
   },
   configureWebpack: config => {
-    config.entry.app = ["babel-polyfill", "whatwg-fetch", "./src/main.js"];
+    config.entry.app = ["babel-polyfill", "whatwg-fetch", "./src/main.js"]
     config.performance = {
       hints: false
     }
+    config.module
+      .rules.push({
+        test: /\.js/,
+        enforce: 'pre',
+        // eslint-disable-next-line no-useless-escape
+        include: /node_modules[\\\/]monaco-editor[\\\/]esm/,
+        use: MonacoWebpackPlugin.loader
+      })
+    // config.plugins.push(new MonacoLocalesPlugin(
+    //   {
+    //     //设置支持的语言
+    //     languages: ["es", "zh-cn"],
+    //     //默认语言
+    //     defaultLanguage: "zh-cn",
+    //     //打印不匹配的文本
+    //     logUnmatched: false,
+    //     //自定义文本翻译
+    //     mapLanguages: { "zh-cn": { "Peek References": "查找引用", "Go to Symbol...": "跳到变量位置", "Command Palette": "命令面板0" } }
+    //   }
+    // ))
+    config.plugins.push(new MonacoWebpackPlugin())
     config.plugins.push(
       new ThemeColorReplacer({
         fileName: 'css/theme-colors-[contenthash:8].css',
@@ -126,9 +150,9 @@ module.exports = {
     config.plugin('extract-css').use(miniCssExtractPlugin)
 
     // 展示可视化文件占用信息，上线之前注释掉
-    config
-      .plugin('webpack-bundle-analyzer')
-      .use(BundleAnalyzerPlugin)
+    // config
+    //   .plugin('webpack-bundle-analyzer')
+    //   .use(BundleAnalyzerPlugin)
 
 
 

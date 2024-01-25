@@ -27,6 +27,9 @@
     </template>
 
     <a-card title="需求动态">
+      monaco编辑器：
+      <div id="monacoContainer" style="height: 500px"></div>
+
       <div style="display: flex">
         <a-timeline style="width: 400px">
           <a-timeline-item :key="index" v-for="(item, index) in actionList">
@@ -219,6 +222,13 @@ import {
 } from "@/mock/common/tableData";
 import { mapState } from "vuex";
 import HeadInfo from "@/components/tool/HeadInfo";
+// import * as monaco from "monaco-editor";
+import { setLocaleData } from "monaco-editor-nls";
+import zh_CN from "monaco-editor-nls/locale/zh-hans";
+// 把所有的输出包裹到 actions 对象里
+import * as actions from "monaco-editor/esm/vs/platform/actions/common/actions";
+setLocaleData(zh_CN);
+const monaco = require("monaco-editor/esm/vs/editor/editor.api");
 
 const DetailListItem = DetailList.Item;
 const AStepItemGroup = AStepItem.Group;
@@ -320,6 +330,34 @@ export default {
       array111: [],
       listIndex: [],
       actionList,
+      monacoEditor: null,
+      monacoOptions: {
+        value: "var aaa='1321'", // 编辑器的值
+        language: "javascript", //语言
+        theme: "CodeSampleTheme", // 编辑器主题：vs, hc-black, or vs-dark
+        themeColor: "red",
+        autoIndent: true, // 自动缩进
+        readOnly: false, // 是否只读
+        folding: true, // 是否折叠
+        foldingHighlight: true, // 折叠等高线
+        foldingStrategy: "indentation", // 折叠方式  auto | indentation
+        showFoldingControls: "always", // 是否一直显示折叠 always | mouseover
+        disableLayerHinting: true, // 等宽优化
+        emptySelectionClipboard: false, // 空选择剪切板
+        selectionClipboard: false, // 选择剪切板
+        automaticLayout: true, // 自动布局
+        codeLens: false, // 代码镜头
+        scrollBeyondLastLine: false, // 滚动完最后一行后再滚动一屏幕
+        colorDecorators: true, // 颜色装饰器
+        accessibilitySupport: "off", // 辅助功能支持  "auto" | "off" | "on"
+        lineNumbers: "on", // 行号 取值： "on" | "off" | "relative" | "interval" | function
+        lineNumbersMinChars: 5, // 行号最小字符   number
+        enableSplitViewResizing: false,
+        minimap: {
+          // 关闭代码缩略图
+          enabled: false, // 是否启用预览图
+        },
+      },
     };
   },
   computed: {
@@ -327,8 +365,87 @@ export default {
   },
   mounted() {
     this.getRequireAction();
+    this.createMonacoEditor();
+    // this.$refs.codeEditor.setEditorValue(data)
   },
   methods: {
+    createMonacoEditor() {
+      const container = document.getElementById("monacoContainer");
+      this.monacoEditor = monaco.editor.create(container, this.monacoOptions);
+
+      // 自定义主题背景色
+      monaco.editor.defineTheme("CodeSampleTheme", {
+        base: "vs",
+        inherit: true,
+        rules: [
+          { token: "", foreground: "#d71717", background: "#12d494" },
+          { token: "comments", foreground: "#c0c0c0" },
+          { token: "string", foreground: "#dc0a0a" },
+          { token: "keyword", foreground: "#0000FF", fontStyle: "bold" },
+          { token: "key", foreground: "#863B00" },
+        ],
+        colors: {
+          // 相关颜色属性配置
+          ["editor.background"]: "#fff5fd", // 背景色
+          "editorWidget.background": "#fdeefa", //查找/搜索编辑器部件
+          "menu.background": "#fdeefa", //右键菜单项
+        },
+      });
+
+      monaco.editor.setTheme("CodeSampleTheme");
+
+      // this.monacoEditor.addAction({
+      //   id: "translate", // 菜单项 id
+      //   label: "汉化", // 菜单项名称
+      //   keybindings: [], // 绑定快捷键
+      //   // keybindings: [this.monaco.KeyMod.CtrlCmd | this.monaco.KeyCode.KEY_J], // 绑定快捷键
+      //   contextMenuGroupId: "navigation", // 所属菜单的分组
+      //   run: () => {}, // 点击后执行的操作
+      // });
+
+      // const contextmenu = this.monacoEditor.getContribution(
+      //   "editor.contrib.contextmenu"
+      // );
+      let menus = actions.MenuRegistry._menuItems;
+      let contextMenuEntry = [...menus].find(
+        (entry) => entry[0]._debugName == "EditorContext"
+      );
+      let contextMenuLinks = contextMenuEntry[1];
+      let allCommandIds = [...contextMenuLinks].map(el => el)
+      let removableIds = [
+      "editor.action.goToTypeDefinition",
+      "editor.action.goToReferences",
+
+        // "editor.action.clipboardCutAction",
+        // "editor.action.clipboardCopyAction",
+        // "editor.action.clipboardPasteAction",
+        // "editor.action.refactor",
+        // "editor.action.sourceAction",
+        // "editor.action.revealDefinition",
+        // "editor.action.revealDeclaration",
+        // "editor.action.goToImplementation",
+        // "editor.action.formatDocument",
+        // "editor.action.formatSelection",
+        // "editor.action.changeAll",
+        // "editor.action.rename",
+        // "editor.action.quickOutline",
+        // "editor.action.quickCommand",
+        // "Peek",
+      ];
+      let removeById = (list, ids) => {
+        let node = list._first;
+        do {
+          let shouldRemove =
+            ids.includes(node.element?.command?.id) ||
+            ids.includes(node.element?.title);
+          if (shouldRemove) {
+            list._remove(node);
+          }
+        } while ((node = node.next));
+      };
+      removeById(contextMenuLinks, removableIds);
+      console.log("111", allCommandIds);
+    },
     getRequireAction() {
       this.$nextTick(() => {
         this.$refs.programDescription.forEach((item, index) => {
