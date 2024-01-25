@@ -102,21 +102,6 @@ const routerMap = {
     name: '高级详情页',
     component: () => import('@/pages/detail/AdvancedDetail')
   },
-  selfCreate: {
-    path: 'selfCreate',
-    name: '自定义页面',
-    component: () => import('@/pages/detail/SelfCreate')
-  },
-  selfTable: {
-    path: 'selfTable',
-    name: '可编辑单元格',
-    component: () => import('@/pages/detail/SelfTable')
-  },
-  selfTable2: {
-    path: 'selfTable2',
-    name: '可编辑单元格',
-    component: () => import('@/pages/detail/SelfTable2')
-  },
   result: {
     name: '结果页',
     icon: 'check-circle-o',

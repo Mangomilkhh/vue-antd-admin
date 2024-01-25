@@ -170,6 +170,11 @@ const options = {
               path: 'selftable2',
               name: '可编辑单元格2',
               component: () => import('@/pages/detail/SelfTable2')
+            },
+            {
+              path: 'virtual_scroll',
+              name: '虚拟滚动表格',
+              component: () => import('@/pages/detail/VirtualScroll')
             }
           ]
         },
