@@ -52,7 +52,7 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    // fixed:"right",
+    fixed:"right",
     scopedSlots: { customRender: 'action' },
   },
 ];
@@ -69,11 +69,11 @@ export default {
       // 开始索引
       startIndex: 0,
       // 选中的数据
-      selectedRows: [],
+      // selectedRows: [],
       // 空元素，用于撑开table的高度
       vEle: undefined,
       // 是否全选
-      isSelectedAll: false,
+      // isSelectedAll: false,
     }
   },
   // 计算属性
@@ -83,12 +83,12 @@ export default {
       return this.tableData.slice(this.startIndex, this.startIndex + 9);
     },
   },
-  created() {
+  created() {},
+  mounted() {
     // 创建一个空元素，这个空元素用来撑开 table 的高度，模拟所有数据的高度
     this.vEle = document.createElement("div");
-    this.loadData();
-  },
-  mounted() {
+    this.loadData();    
+    
     // 绑定滚动事件
     this.$refs.tableRef.$el
       .querySelector(".ant-table-body")
@@ -117,9 +117,9 @@ export default {
         // 把这个节点加到表格中去，用它来撑开表格的高度
         this.$refs.tableRef.$el.querySelector(".ant-table-body").appendChild(this.vEle);
         // 重新设置曾经被选中的数据
-        this.selectedRows.forEach(row => {
-          this.$refs.tableRef.toggleRowSelection(row, true);
-        });
+        // this.selectedRows.forEach(row => {
+        //   this.$refs.tableRef.toggleRowSelection(row, true);
+        // });
       });
     },
 
@@ -130,7 +130,7 @@ export default {
       let scrollTop = bodyWrapperEle.scrollTop;
       // 下一次开始的索引
       this.startIndex = Math.floor(scrollTop / 58);
-      // console.log('111', this.sliceTable);
+      console.log('111', this.startIndex,this.sliceTable);
 
       // 滚动操作 使所有内容同步显示当前视图
       bodyWrapperEle.querySelector(".ant-table-body .ant-table-fixed").style.transform = `translateY(${this.startIndex * 58}px)`;
