@@ -180,6 +180,11 @@ const options = {
               path: 'virtual_scroll',
               name: '虚拟滚动表格',
               component: () => import('@/pages/detail/VirtualScroll')
+            },
+            {
+              path: 'raf_list',
+              name: '高性能分批渲染大量数据',
+              component: () => import('@/pages/detail/RAFList')
             }
           ]
         },
