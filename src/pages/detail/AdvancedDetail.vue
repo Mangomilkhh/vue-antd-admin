@@ -88,17 +88,6 @@
       </a-steps>
     </a-card>
     <a-card style="margin-top: 24px" :bordered="false" title="用户信息">
-      <detail-list>
-        <detail-list-item term="用户姓名">付晓晓</detail-list-item>
-        <detail-list-item term="会员卡号"
-          >32943898021309809423</detail-list-item
-        >
-        <detail-list-item term="身份证">3321944288191034921</detail-list-item>
-        <detail-list-item term="联系方式">18112345678</detail-list-item>
-        <detail-list-item term="联系地址"
-          >浙江省杭州市西湖区黄姑山路工专路交叉路口</detail-list-item
-        >
-      </detail-list>
       <detail-list title="信息组">
         <detail-list-item term="某某数据">725</detail-list-item>
         <detail-list-item term="该数据更新时间">2018-08-08</detail-list-item>
@@ -108,26 +97,6 @@
         <detail-list-item>&nbsp;</detail-list-item>
       </detail-list>
       <a-card type="inner" title="多层信息组">
-        <detail-list title="组名称" size="small">
-          <detail-list-item term="负责人">林东东</detail-list-item>
-          <detail-list-item term="角色码">1234567</detail-list-item>
-          <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
-          <detail-list-item term="过期时间">2018-08-08</detail-list-item>
-          <detail-list-item term="描述" class="longerContent"
-            >这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item
-          >
-        </detail-list>
-        <a-divider style="margin: 16px 0" />
-        <detail-list title="组名称" size="small" :col="1">
-          <detail-list-item term="学名">林东东</detail-list-item>
-          <detail-list-item term="角色码">1234567</detail-list-item>
-          <detail-list-item term="所属部门">XX公司-YY部</detail-list-item>
-          <detail-list-item term="过期时间">2018-08-08</detail-list-item>
-          <detail-list-item term="描述" class="longerContent"
-            >这段描述很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长</detail-list-item
-          >
-        </detail-list>
-        <a-divider style="margin: 16px 0" />
         <detail-list title="组名称" size="small" :col="2">
           <detail-list-item term="学名">林东东</detail-list-item>
           <detail-list-item term="角色码">1234567</detail-list-item>
@@ -141,7 +110,7 @@
         </detail-list>
         <a-divider style="margin: 16px 0" />
         <detail-list
-          title="内容被压缩时，显示省略号并悬浮气泡框："
+          title="内容被压缩时，不换行，而是显示省略号并悬浮气泡框tooltip："
           size="small"
           :col="4"
         >
@@ -156,11 +125,11 @@
             <span v-else>{{ item.content }}</span> -->
 
             <!-- 文本超出宽度时显示 -->
-            <a-tooltip :visible="item.showNameTip" :title="item.content">
-              <div class="tenant-item-name">
+            <a-tooltip :visible="item.showTooltip" :title="item.content">
+              <div class="ellipsis-item">
                 <span
                   @mouseover="(e) => overName(e, item)"
-                  @mouseleave="item.showNameTip = false"
+                  @mouseleave="item.showTooltip = false"
                 >
                   {{ item.content }}
                 </span>
@@ -169,13 +138,6 @@
           </div>
         </detail-list>
       </a-card>
-    </a-card>
-    <a-card
-      style="margin-top: 24px"
-      :bordered="false"
-      title="用户近半年来电记录"
-    >
-      <a-list></a-list>
     </a-card>
     <a-card
       style="margin-top: 24px"
@@ -252,27 +214,27 @@ const userList = [
   {
     key: "1",
     value: "用户名称",
-    content: "wahahahahahahahaha",
-    showNameTip: false,
+    content: "wahahahahahahahaha,wahahahahahahahahawah,ahahahahahahahawahah,ahahahahahahahawahah,ahahahahahahahawahah,ahahahahahaha",
+    showTooltip: false,
   },
   {
     key: "2",
     value: "用户部门",
-    content: "CNCB & BI & planning",
-    showNameTip: false,
+    content: "CNCB & BI & planning,Object > Data infrastructure",
+    showTooltip: false,
   },
   {
     key: "3",
     value: "用户所在组",
-    content: "Object > Data infrastructure",
-    showNameTip: false,
+    content: "CNCB PnL Dashboard - Special case ：MT_Lifestyle_S&O_AutoMoto_Stationery_Hobbies",
+    showTooltip: false,
   },
   {
     key: "4",
     value: "用户入职时间",
     content:
       new Date().toLocaleDateString() + "  " + new Date().toLocaleTimeString(),
-    showNameTip: false,
+    showTooltip: false,
   },
 ];
 
@@ -473,9 +435,9 @@ export default {
       const parentWidth = e.currentTarget.parentNode.offsetWidth;
       //span子元素
       const contentWidth = e.currentTarget.offsetWidth;
-      // 子元素>父元素，超出宽度时手动控制气泡框显示
+      // 子元素>父元素，文字内容超出当前宽度时手动控制气泡框显示
       if (contentWidth > parentWidth) {
-        item.showNameTip = true;
+        item.showTooltip = true;
       }
     },
   },
@@ -596,7 +558,7 @@ pre {
   -webkit-mask: none;
 }
 
-.tenant-item-name {
+.ellipsis-item {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
