@@ -1,6 +1,7 @@
 <template>
   <page-layout title="基础详情页" sa>
     <a-card style="margin-bottom: 20px">
+      <span v-html="testXss"></span><br />
       <!-- <span>{{ str }}</span
       ><br /><br />
      
@@ -321,6 +322,7 @@ export default {
         readOnly: false,
         minLines: 5, // 最小行数，还未到最大行数时，编辑器会自动伸缩大小
       },
+      testXss:'<img src=1 onerror=console.log(1) />'
     };
   },
   mounted() {
