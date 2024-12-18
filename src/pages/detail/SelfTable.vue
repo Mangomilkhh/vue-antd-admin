@@ -1,5 +1,5 @@
 <template>
-  <page-layout title="修改：可编辑单元格">
+  <page-layout title="修改：可编辑单元格 / 大量数据卡顿效果">
     <a-card :bordered="false" v-if="showComponent">
       <div>
         <a-button @click="handleAdd">Add</a-button>
@@ -14,9 +14,13 @@
           :data-source="dataSource"
           :columns="columns"
           :key="componentKey"
+          :scroll="{ x: 500,y: 500 }"
           :pagination="{
-            pageSize: 100,
-            total: total,
+            total: 0,
+            showSizeChanger: true,
+            pageSizeOptions: ['10', '20', '50', '100', '200'],
+            showQuickJumper: true,
+            showTotal: (total) => `共 ${total} 条数据`,
           }"
         >
           <div
