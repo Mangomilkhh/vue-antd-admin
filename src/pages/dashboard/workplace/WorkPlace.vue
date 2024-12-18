@@ -158,6 +158,22 @@ export default {
       this.projects = res.data
       this.loading = false
     })
+
+    //vue监听scroll事件 别忘记加true
+    window.addEventListener('scroll', this.handleScroll, true);
+  },
+  methods:{
+    // handleScroll($event) {
+      // 此处处理滚动事件
+      // console.log('页面正在滚动',$event);
+      
+      // 示例：判断页面是否滚动到底部
+      // const isBottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
+      // if (isBottom) {
+      //   console.log('已滚动到页面底部');
+      //   // 这里可以执行到达底部时的操作
+      // }
+    // },
   }
 }
 </script>
