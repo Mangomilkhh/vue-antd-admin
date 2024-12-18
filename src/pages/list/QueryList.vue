@@ -130,6 +130,8 @@
 <script>
 import StandardTable from '@/components/table/StandardTable'
 import {request} from '@/utils/request'
+import { v4 as uuidv4 } from 'uuid';
+
 const columns = [
   {
     title: '规则编号',
@@ -174,7 +176,7 @@ export default {
       selectedRows: [],
       pagination: {
         current: 1,
-        pageSize: 10,
+        pageSize: 20,
         total: 0
       }
     }
@@ -228,7 +230,7 @@ export default {
       this.dataSource.unshift({
         key: this.dataSource.length,
         no: 'NO ' + this.dataSource.length,
-        description: '这是一段描述',
+        description: uuidv4(),
         callNo: Math.floor(Math.random() * 1000),
         status: Math.floor(Math.random() * 10) % 4,
         updatedAt: '2018-07-26'
