@@ -1,6 +1,7 @@
 <template>
-  <div class="editable-cell">
-    <div v-if="editable" class="editable-cell-input-wrapper">
+  <div>
+    <!-- 编辑的情况 -->
+    <div v-if="editable">
       <a-input
         id="input"
         v-if="col.type == 'input'"
@@ -41,7 +42,7 @@
       <div class="codeEditBox">
         <!-- @input="codeChange" -->
         <code-editor
-          v-if="col.type == 'code_editors'"
+          v-if="col.type == 'code_editor'"
           ref="editor"
           @init="editorInit"
           v-model="value"
@@ -51,8 +52,19 @@
         ></code-editor>
       </div>
     </div>
-    <div v-else class="editable-cell-text-wrapper">
-      {{ value }}
+
+    <!-- 查看的情况 -->
+    <div v-else>
+      <!-- 文本超出宽度时显示 -->
+      <a-tooltip :visible="showTooltip" :title="value" placement="topLeft"
+        :autoAdjustOverflow="false">
+        <span
+          @mouseenter="(e) => enterName(e)"
+          @mouseleave="leaveName"
+        >
+          {{ value }}
+        </span>
+      </a-tooltip>
     </div>
   </div>
 </template>
@@ -98,6 +110,7 @@ export default {
         readOnly: false,
         minLines: 5, // 最小行数，还未到最大行数时，编辑器会自动伸缩大小
       },
+      showTooltip:false,
     };
   },
   methods: {
@@ -142,6 +155,30 @@ export default {
       require("brace/snippets/lua");
       require("brace/snippets/javascript");
     },
+    enterName(e) {
+      //div父元素
+      const parentWidth = e.currentTarget.parentNode.offsetWidth;
+      //span子元素
+      const contentWidth = e.currentTarget.offsetWidth;
+      // 子元素>父元素，文字内容超出当前宽度时手动控制气泡框显示
+      setTimeout(()=>{
+        if (contentWidth > parentWidth) {
+          this.showTooltip = true;
+        }    
+      }, 100)
+    },
+    leaveName(){
+      setTimeout(()=>{
+        this.showTooltip = false;
+      }, 200)
+    }
   },
 };
 </script>
+
+<style>
+.custom-tooltip{
+  top: 20px;
+  width: 300px;
+}
+</style>
