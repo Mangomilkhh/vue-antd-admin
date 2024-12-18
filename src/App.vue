@@ -24,6 +24,8 @@ export default {
   },
   mounted() {
    this.setWeekModeTheme(this.weekMode)
+   console.tag = function(key,value){ console.log( `%c ${key} %c ${value} `, "color:white;background-color:#5f5f5f;padding: 3px;border-radius: 5px 0px 0px 5px;;font-family: 'pingfang SC','helvetica neue',arial,'hiragino sans gb','microsoft yahei ui','microsoft yahei',simsun,sans-serif;", "color:white;background-color:#1384c4;border-radius: 0px 5px 6px 0px;;font-family: 'pingfang SC','helvetica neue',arial,'hiragino sans gb','microsoft yahei ui','microsoft yahei',simsun,sans-serif;padding: 3px;" ); }
+   console.tag("vue","2.6.11")
   },
   watch: {
     weekMode(val) {
