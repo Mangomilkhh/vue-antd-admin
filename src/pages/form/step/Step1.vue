@@ -1,7 +1,8 @@
 <template>
   <div>
     <a-form style="max-width: 500px; margin: 40px auto 0;">
-      <!-- multiple="true" -->
+      <!-- multiple="true" SHOW_ALL-->
+      <!-- 选择子级时，只可单选。选择父级时，可选中其所有子级 -->
       <a-form-item
         label="TreeSelect 树型选择控件"
         :labelCol="{span: 7}"
@@ -75,38 +76,46 @@ const SHOW_ALL = TreeSelect.SHOW_ALL;
 const treeData = [
   {
     title: 'Node1',
-    value: '0-0',
-    key: '0-0',
+    value: '111',
+    key: '111',
     children: [
       {
         title: 'Child Node1',
-        value: '0-0-0',
-        key: '0-0-0',
+        value: 'c Node1',
+        key: 'c Node1',
+        // checkable:false,
+        // selectable:true,
       },
     ],
   },
   {
     title: 'Node2',
-    value: '0-1',
-    key: '0-1',
+    value: '222',
+    key: '222',
     children: [
       {
         title: 'Child Node3',
-        value: '0-1-0',
-        key: '0-1-0',
+        value: 'c Node3',
+        key: 'c Node3',
       },
       {
         title: 'Child Node4',
-        value: '0-1-1',
-        key: '0-1-1',
+        value: 'c Node4',
+        key: 'c Node4',
       },
       {
         title: 'Child Node5',
-        value: '0-1-2',
-        key: '0-1-2',
+        value: 'c Node5',
+        key: 'c Node5',
       },
     ],
-  }]
+  },{
+    
+    title: 'Node3',
+    value: '333',
+    key: '333',
+  }
+  ]
 
 export default {
   name: 'Step1',
@@ -139,12 +148,14 @@ export default {
       return list;
     },
     onTreeSelectChange(value, label, extra){
-      console.log('onTreeSelectChange',value, label, extra,this.treeData);
+      // if(label?.includes('Node2')){
+        // this.treeData[0].checkable = false;
+      // }
+      extra.checked=true;
+      this.treeVal = extra.triggerValue?[extra.triggerValue]:[];
+      console.log('onTreeSelectChange',value, label, extra,this.treeVal);
 
-      if(label.includes('Node2')){
-        this.treeData[0].checkable = false;
-      }
-    }
+    },
   }
 }
 </script>
