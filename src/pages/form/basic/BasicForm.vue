@@ -3,6 +3,14 @@
     <a-card :body-style="{ padding: '24px 32px' }" :bordered="false">
       <a-form>
         <a-form-item
+          label="文件上传"
+          :labelCol="{ span: 7 }"
+          :wrapperCol="{ span: 10 }"
+        >
+          <!-- <a-button type="primary" ghost @click="add"><a-icon type="upload" />文件上传到oss</a-button> -->
+          <input ref="input" type="file" id="uploader" @change="handleFiles">
+        </a-form-item>
+        <a-form-item
           :label="$t('title')"
           :labelCol="{ span: 7 }"
           :wrapperCol="{ span: 10 }"
@@ -143,6 +151,7 @@
 var parser = require('cron-parser');
 
 try {
+  // crontab执行时间计算：https://www.iamwawa.cn/crontab.html
   // 周一12 17 22点跑
   var interval = parser.parseExpression('0 12,17,19,22 * * 1');
 
@@ -211,6 +220,43 @@ export default {
         key: Date.now(),
       });
     },
+    handleFiles(event) {
+      //参考： https://blog.csdn.net/qq_45634989/article/details/126855507
+      var f = event.target.files[0]
+      let reader = new FileReader();
+      reader.readAsArrayBuffer(f);
+      reader.onload = function (e) {
+        let res = e.target.result;//ArrayBuffer
+        let buf = Buffer.from(res);//Buffer
+
+        //初始化minio客户端
+        var Minio = require('minio')
+        var minioClient = new Minio.Client({
+          endPoint: 'compass-static.shopee.io',    //存放桶的服务器的URL
+          port: 9000,      //TCP/IP 端口号，此输入是可选的，HTTP默认为80 ，HTTPs的默认值设置为443
+          useSSL: false,     //将此值设置为“true”为HTTPS访问，false为普通http访问
+          accessKey: 'lydia.li@shopee.com',     //用户 ID
+          secretKey: '2B6Io0B0WcXyN4styjSiu1SU8PmTLVsp'     //用户密码
+        });
+
+        //使用客户端对象将文件上传到指定的bucket
+        //putObject参数 按次序来
+        //1、存储桶的名称
+        //2、对象的名称（文件存到bucket中的名称）
+        //3、流对象（可读的stream流、Buffer、string字符串）
+        //4、将写入对象数据的本地文件系统上的路径（可为null）
+        //5、文件大小（可为null）
+        //6、发生错误时调用回调err
+        console.log('999',f,buf);
+        
+        minioClient.putObject('file-merge', f.name, buf, null, f.size, function (err, data) {
+          if (err)
+            console.log(err,data)
+          else
+            console.log("Successfully uploaded data to testbucket/testobject");
+        });
+      }
+    }
   },
 };
 </script>
