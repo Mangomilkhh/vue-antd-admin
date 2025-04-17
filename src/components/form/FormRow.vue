@@ -38,14 +38,12 @@ export default {
     }
     .content {
       flex: 1 1 0;
-      :global {
-        .ant-form-item:last-child {
+        :global(.ant-form-item:last-child) {
           margin-right: 0;
         }
-        .ant-form-item {
+        :global(.ant-form-item) {
           margin-bottom: 0px;
         }
-      }
     }
   }
 </style>

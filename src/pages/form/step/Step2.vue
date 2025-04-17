@@ -71,13 +71,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  .stepFormText {
-    margin-bottom: 24px;
-    :global {
-      .ant-form-item-label,
-      .ant-form-item-control {
-        line-height: 22px;
-      }
-    }
+.stepFormText {
+  margin-bottom: 24px;
+  :global(.ant-form-item-label) {
+    line-height: 22px;
   }
+  :global(.ant-form-item-control) {
+    line-height: 22px;
+  }
+}
 </style>
